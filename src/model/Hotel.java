@@ -13,4 +13,7 @@ public enum Hotel {
         return hotel;
     }
 
+    public void test(){
+
+    }
 }
