@@ -14,6 +14,6 @@ public enum Hotel {
     }
 
     public void test(){
-
+        System.out.println("Este es un test de git con IntelliJ");
     }
 }
