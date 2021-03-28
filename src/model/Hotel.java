@@ -12,5 +12,4 @@ public enum Hotel {
     public String getHotel() {
         return hotel;
     }
-
 }
