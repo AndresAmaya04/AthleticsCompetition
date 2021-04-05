@@ -1,32 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Delegation {
 
-    private String name;
-    private String placeOfOrigin;
-    private int registedRunner;
-    private Hotel hotel;
+    private String originPlace;
+    private ArrayList<Competitor> competitors;
 
-    public Delegation(String name, String placeOfOrigin, int registedRunner, Hotel hotel) {
-        this.name = name;
-        this.placeOfOrigin = placeOfOrigin;
-        this.registedRunner = registedRunner;
-        this.hotel = hotel;
+    public Delegation(String originPlace) {
+        this.originPlace=originPlace;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPlaceOfOrigin() {
-        return placeOfOrigin;
-    }
-
-    public int getRegistedRunner() {
-        return registedRunner;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
 }

@@ -1,27 +1,29 @@
 package model;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 public class Competence {
-    private LocalTime initiHour;
-    private LocalTime finalHour;
-    private int amountParticipants;
 
-    public Competence(LocalTime initiHour, LocalTime finalHour, int amountParticipants) {
-        this.initiHour = initiHour;
-        this.finalHour = finalHour;
-        this.amountParticipants = amountParticipants;
+    private LocalTime initHour;
+    private LocalTime finishHour;
+    private DayOfWeek dayOfWeek;
+
+    public Competence(LocalTime initHour, LocalTime finishHour, DayOfWeek dayOfWeek) {
+        this.initHour=initHour;
+        this.finishHour=finishHour;
+        this.dayOfWeek=dayOfWeek;
     }
 
-    public LocalTime getInitiHour() {
-        return initiHour;
+    public LocalTime getInitHour() {
+        return initHour;
     }
 
-    public LocalTime getFinalHour() {
-        return finalHour;
+    public LocalTime getFinishHour() {
+        return finishHour;
     }
 
-    public int getAmountParticipants() {
-        return amountParticipants;
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
     }
 }

@@ -1,7 +1,6 @@
-
 package model;
 
-public enum  Gender {
+public enum Gender {
     MALE("Masculino"), FEMALE("Femenino");
 
     private String gender;
