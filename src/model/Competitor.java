@@ -6,8 +6,9 @@ import java.time.Period;
 
 public class Competitor {
 
+    private Medal medal;
     private int dorsal;
-    private Competence[] competences;
+    private Competence competence;
     private String name;
     private String lastName;
     private LocalTime timeResult;
@@ -16,8 +17,9 @@ public class Competitor {
     private LocalDate dateOfBirth;
     private Category category;
 
-    public Competitor(String name, String lastName, Gender gender, LocalDate dateOfBirth) {
-        this.competences= new Competence[3];
+    public Competitor(int dorsal, String name, String lastName, Gender gender, LocalDate dateOfBirth, Competence competence) {
+        this.dorsal = dorsal;
+        this.competence = competence;
         this.name=name;
         this.lastName=lastName;
         this.timeResult= null;
@@ -62,5 +64,9 @@ public class Competitor {
 
     public Category getCategory() {
         return category;
+    }
+
+    public Object[] getCompetitorInfoForSearch(){
+        return new Object[]{this.competence, this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender};
     }
 }

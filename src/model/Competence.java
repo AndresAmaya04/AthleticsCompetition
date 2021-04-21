@@ -8,6 +8,7 @@ public class Competence {
     private LocalTime initHour;
     private LocalTime finishHour;
     private DayOfWeek dayOfWeek;
+    private String nameCompetence;
 
     public Competence(LocalTime initHour, LocalTime finishHour, DayOfWeek dayOfWeek) {
         this.initHour=initHour;
@@ -25,5 +26,9 @@ public class Competence {
 
     public DayOfWeek getDayOfWeek() {
         return dayOfWeek;
+    }
+
+    public void setNameCompetence(String string){
+        this.nameCompetence = string;
     }
 }

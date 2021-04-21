@@ -12,5 +12,20 @@ public class ThrowCompetence extends Competence{
     public ThrowCompetence(LocalTime initHour, LocalTime finishHour, DayOfWeek dayOfWeek, ThrowType throwType) {
         super(initHour, finishHour, dayOfWeek);
         this.throwType=throwType;
+        definedCompetence();
+    }
+
+    private void definedCompetence(){
+        switch (this.throwType){
+            case DISK:
+                this.setNameCompetence(throwType.getObjectToThrow());
+                break;
+            case HAMMER:
+                this.setNameCompetence(throwType.getObjectToThrow());
+                break;
+            case JAVELIN:
+                this.setNameCompetence(throwType.getObjectToThrow());
+                break;
+        }
     }
 }
