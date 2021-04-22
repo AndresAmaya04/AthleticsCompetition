@@ -50,6 +50,10 @@ public class Competitor {
         return name;
     }
 
+    public Medal getMedal() {
+        return medal;
+    }
+
     public String getLastName() {
         return lastName;
     }
