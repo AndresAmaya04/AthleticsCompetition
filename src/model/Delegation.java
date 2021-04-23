@@ -57,8 +57,8 @@ public class Delegation {
 
     }
 
-    public int[] getMedalsOfDelegation(){
-        return new int[]{medalsGold, medalsSilver, medalsBronze, getMedalsQuantiti()};
+    public Object[] getMedalsOfDelegation(){
+        return new Object[]{medalsGold, medalsSilver, medalsBronze, getMedalsQuantiti()};
     }
 
     public void addPlayerToDelegation(Competitor competitor){
