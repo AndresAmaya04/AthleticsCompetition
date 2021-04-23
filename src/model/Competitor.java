@@ -10,6 +10,7 @@ public class Competitor {
     private int dorsal;
     private Competence competence;
     private String name;
+    private String delegation;
     private String lastName;
     private LocalTime timeResult;
     private double meterResult;
@@ -17,8 +18,9 @@ public class Competitor {
     private LocalDate dateOfBirth;
     private Category category;
 
-    public Competitor(int dorsal, String name, String lastName, Gender gender, LocalDate dateOfBirth, Competence competence) {
+    public Competitor(int dorsal, String name, String lastName, String delegation,Gender gender, LocalDate dateOfBirth, Competence competence) {
         this.dorsal = dorsal;
+        this.delegation = delegation;
         this.competence = competence;
         this.name=name;
         this.lastName=lastName;
@@ -68,6 +70,10 @@ public class Competitor {
 
     public Category getCategory() {
         return category;
+    }
+
+    public String getDelegation() {
+        return delegation;
     }
 
     public Object[] getCompetitorInfoForSearch(){

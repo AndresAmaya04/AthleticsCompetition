@@ -52,20 +52,25 @@ public class Delegation {
         return competitors;
     }
 
-    public int getMedalsGold() {
-        return medalsGold;
-    }
-
-    public int getMedalsSilver() {
-        return medalsSilver;
-    }
-
-    public int getMedalsBronze() {
-        return medalsBronze;
-    }
-
-    public int getMedalsQuantiti(){
+    private int getMedalsQuantiti(){
         return medalsBronze + medalsGold + medalsSilver;
 
     }
+
+    public int[] getMedalsOfDelegation(){
+        return new int[]{medalsGold, medalsSilver, medalsBronze, getMedalsQuantiti()};
+    }
+
+    public void addPlayerToDelegation(Competitor competitor){
+        this.competitors.add(competitor);
+    }
+
+    public int getSizeOfDelegation(){
+        return this.competitors.size();
+    }
+
+    public Competitor getIndexCompetitor(int index){
+        return this.competitors.get(index);
+    }
+
 }

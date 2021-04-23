@@ -15,22 +15,46 @@ public class AthleticsCompetition {
      * @param delegation nombre de la delegacion
      * @return texto con cantidad de medallas de la delegacion
      */
-    public String medalForDelegation(String delegation){
-        int totalGold = 0;
-        int totalSilver = 0;
-        int totalBronze = 0;
-        int finalTotal = 0;
-        for (int i = 0; i < delegations.size(); i++) {
-            if (delegation.equals(delegations.get(i).getNameOfDelegation())) {
-                totalGold = delegations.get(i).getMedalsGold();
-                totalSilver = delegations.get(i).getMedalsSilver();
-                totalBronze = delegations.get(i).getMedalsBronze();
-                finalTotal = delegations.get(i).getMedalsQuantiti();
-            }else {
-                System.out.println("No ganaron medallas");
+    public int[] medalForDelegation(String delegation){
+        int[] aux = null;
+        for (int i=0; i<delegations.size(); i++){
+            if (delegations.get(i).getOriginPlace().equals(delegation)){
+                aux = delegations.get(i).getMedalsOfDelegation();
             }
         }
-        return "Total medallas de oro: " + totalGold + "\nTotal medallas de plata: " + totalSilver + "\nTotal medallas de bronce: " + totalBronze + "\nTotal medallas: " + finalTotal;
+        return aux;
     }
+
+    /**
+     * Metodo que agrega un corredor a una delegacion
+     * @param competitor competidor a agregar
+     */
+    public void addCompetitor(Competitor competitor){
+        for (int i=0; i< delegations.size(); i++){
+            if (competitor.getDelegation().equals(delegations.get(i).getNameOfDelegation())){
+                delegations.get(i).addPlayerToDelegation(competitor);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Metodo que lista de competidores por una delegacion
+     * @param delegation nombre de la delegacion
+     * @return lista de competidores de una delegacion especifica
+     */
+    public ArrayList<Object[]> getListOfCompetitorsByDelegation(String delegation){
+        ArrayList<Object[]> competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            Delegation tem = delegations.get(i);
+            if (tem.getOriginPlace().equals(delegation)){
+                for (int j=0; j<tem.getSizeOfDelegation(); j++){
+                    competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForSearch());
+                }
+            }
+        }
+        return competitors;
+    }
+
 
 }
