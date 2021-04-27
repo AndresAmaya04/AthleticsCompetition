@@ -15,7 +15,8 @@ public class JfMainWindow extends JFrame {
 
 
     public JfMainWindow(Presenter presenter) throws HeadlessException {
-//        setMinimumSize(new Dimension(900,400));
+        this.setBackground(Color.decode("#114358"));
+        setMinimumSize(new Dimension(900,400));
         setExtendedState( MAXIMIZED_BOTH );
 //        this.setIconImage(new ImageIcon(getClass().getResource(ConstantsUI.PATH_ICON)).getImage());
         setTitle("Competencia atletica");
@@ -28,5 +29,9 @@ public class JfMainWindow extends JFrame {
 
     public void initComponents(Presenter presenter){
         jpMainPanel = new JPMainPanel();
+        JScrollPane jScorllPane = new JScrollPane(jpMainPanel);
+
+//        this.add(jScorllPane);
+        this.add(jpMainPanel);
     }
 }
