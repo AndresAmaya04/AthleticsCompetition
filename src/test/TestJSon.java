@@ -1,6 +1,7 @@
 package test;
 
 import jdk.nashorn.internal.parser.JSONParser;
+import model.AthleticsCompetition;
 import model.Competitor;
 import model.Gender;
 import org.json.simple.DeserializationException;
@@ -39,22 +40,27 @@ public class TestJSon {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Competitor> competitors = new ArrayList();
+        ArrayList<Competitor> competition = new ArrayList<>();
         JsonArray list;
         try {
-            //int dorsal, String name, String lastName, String delegation,Gender gender, LocalDate dateOfBirth, Competence competence
             list = (JsonArray) Jsoner.deserialize(new FileReader("resources/prueba.json"));
             for (int i=0; i<list.size(); i++){
-                JsonObject temp = (JsonObject) list.get(i);
-                competitors.add(new Competitor(i+1, (String) temp.get("first_name"), (String) temp.get("last_name"), (String) temp.get("country"),
-                        extractGender((String) temp.get("gender")), getLocalDate((String) temp.get("date_birth")), null));
+                JsonObject temp =(JsonObject) list.get(i);
+                competition.add(new Competitor(i+1, (String) temp.get("first_name"), (String) temp.get("last_name"), (String) temp.get("country"),
+                        extractGender((String) temp.get("gender")),getLocalDate((String) temp.get("date_birth")), null));
             }
-
-            for (int i=0; i<competitors.size(); i++){
-                System.out.println(Arrays.toString(competitors.get(i).getCompetitorInfoForSearch()));
+            for (int i=0; i<competition.size(); i++){
+                System.out.println(Arrays.toString(competition.get(i).getCompetitorInfoForTest()));
+                System.out.println(obtainCompetence(i));
             }
         } catch (DeserializationException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int obtainCompetence(int index) throws IOException, DeserializationException {
+            JsonArray array = (JsonArray)  Jsoner.deserialize(new FileReader("resources/competenceJson.json"));
+            JsonObject temp = (JsonObject) array.get(index);
+            return temp.getInteger("competence");
     }
 }

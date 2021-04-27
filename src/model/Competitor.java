@@ -76,7 +76,27 @@ public class Competitor {
         return delegation;
     }
 
+    public Competence getCompetence() {
+        return competence;
+    }
+
+    public void setMedal(Medal medal) {
+        this.medal=medal;
+    }
+
+    public void setMeterResult(double meterResult) {
+        this.meterResult=meterResult;
+    }
+
+    public void setTimeResult(LocalTime timeResult) {
+        this.timeResult=timeResult;
+    }
+
     public Object[] getCompetitorInfoForSearch(){
-        return new Object[]{this.competence, this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender};
+        return new Object[]{this.competence, this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender.getGender()};
+    }
+
+    public Object[] getCompetitorInfoForTest(){
+        return new Object[]{this.dorsal, this.name, this.lastName, this.gender.getGender()};
     }
 }

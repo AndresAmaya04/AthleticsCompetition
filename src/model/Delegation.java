@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Delegation {
 
-    private String nameOfDelegation;
     private String originPlace;
     private int medalsGold = 0;
     private int medalsSilver = 0;
@@ -38,10 +37,6 @@ public class Delegation {
                 }
             }
         }
-    }
-
-    public String getNameOfDelegation() {
-        return nameOfDelegation;
     }
 
     public String getOriginPlace() {

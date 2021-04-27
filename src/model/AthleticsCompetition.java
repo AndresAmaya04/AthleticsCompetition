@@ -31,7 +31,7 @@ public class AthleticsCompetition {
      */
     public void addCompetitor(Competitor competitor){
         for (int i=0; i< delegations.size(); i++){
-            if (competitor.getDelegation().equals(delegations.get(i).getNameOfDelegation())){
+            if (competitor.getDelegation().equals(delegations.get(i).getOriginPlace())){
                 delegations.get(i).addPlayerToDelegation(competitor);
                 break;
             }
@@ -51,6 +51,7 @@ public class AthleticsCompetition {
                 for (int j=0; j<tem.getSizeOfDelegation(); j++){
                     competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForSearch());
                 }
+                break;
             }
         }
         return competitors;
