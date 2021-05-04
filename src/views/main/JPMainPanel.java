@@ -1,6 +1,8 @@
 package views.main;
 
 import javax.swing.*;
+
+import presenter.Presenter;
 import views.body.BodyPanel;
 
 //import controller.Controller;
@@ -21,18 +23,29 @@ public class JPMainPanel extends JPanel {
     HeaderPanel headerPanel;
     FooterPanel footerPanel;
 
-    public JPMainPanel() {
+    public JPMainPanel(Presenter presenter) {
+//        setPreferredSize(new Dimension(10,10));
+//        setMinimumSize(new Dimension(900,400));
+//        setMaximumSize(new Dimension(1920,1080));
+//        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         setLayout(new BorderLayout());
-        initComponents();
+        initComponents(presenter);
     }
 
-    public void initComponents(){
-        headerPanel = new HeaderPanel();
+    public void initComponents(Presenter presenter){
+        headerPanel = new HeaderPanel(presenter);
         jBodyPanel = new BodyPanel();
         footerPanel = new FooterPanel();
 
+//        this.add(headerPanel);
+//        this.add(jBodyPanel);
+//        this.add(footerPanel);
         this.add(headerPanel,BorderLayout.NORTH);
         this.add(jBodyPanel,BorderLayout.CENTER);
         this.add(footerPanel,BorderLayout.SOUTH);
+    }
+
+    public String filechooser(){
+        return headerPanel.filechooser();
     }
 }

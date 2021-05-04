@@ -5,7 +5,11 @@ import java.awt.*;
 
 public class FooterPanel extends JPanel{
     public FooterPanel() {
-        this.setPreferredSize(new Dimension(100,25));
+        int widthS = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int heightS = Toolkit.getDefaultToolkit().getScreenSize().height;
+        float ws = (float) (widthS*0.30);
+        float hs = (float) (heightS*0.030);
+        this.setPreferredSize(new Dimension(widthS,(int) hs));
         this.setBackground(Color.decode("#0A3143"));
         initicomponents();
     }

@@ -1,5 +1,5 @@
 package presenter;
 
 public enum Command {
-
+    C_ADD_JSON,C_ADD_RUNNER,C_CHANGE_SPANISH,C_CHANGE_ENGLISH,C_INFO_RUNNER,C_MEDALS_DELEGATIONS
 }
