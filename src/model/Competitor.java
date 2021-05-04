@@ -76,6 +76,14 @@ public class Competitor {
         return delegation;
     }
 
+    public LocalTime getTimeResult() {
+        return timeResult;
+    }
+
+    public double getMeterResult() {
+        return meterResult;
+    }
+
     public Competence getCompetence() {
         return competence;
     }
@@ -93,10 +101,10 @@ public class Competitor {
     }
 
     public Object[] getCompetitorInfoForSearch(){
-        return new Object[]{this.competence, this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender.getGender()};
+        return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender.getGender()};
     }
 
     public Object[] getCompetitorInfoForTest(){
-        return new Object[]{this.dorsal, this.name, this.lastName, this.gender.getGender()};
+        return new Object[]{this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.competence.getNameCompetence()};
     }
 }

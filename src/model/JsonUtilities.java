@@ -77,7 +77,7 @@ public class JsonUtilities {
     }
 
     private static Competence getCompetence(int index){
-        Competence competence = null;
+        Competence competence;
         switch (index){
             case 1:
                 competence = new TrackCompetence(Distance.METERS_100.getDistance());
@@ -115,9 +115,5 @@ public class JsonUtilities {
                 break;
         }
         return competence;
-    }
-
-    public static void main(String[] args) {
-        JsonUtilities.readJson(ModelConstants.PATH_JSON);
     }
 }

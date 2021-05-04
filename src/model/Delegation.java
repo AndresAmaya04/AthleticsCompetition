@@ -11,6 +11,7 @@ public class Delegation {
     private ArrayList<Competitor> competitors;
 
     public Delegation(String originPlace) {
+        this.competitors = new ArrayList();
         this.originPlace=originPlace;
         setMedals();
 
@@ -22,14 +23,14 @@ public class Delegation {
     public void setMedals(){
         for (int i = 0; i < competitors.size(); i++) {
             if (competitors.get(i).getMedal() != null) {
-                switch (Medal.valueOf(competitors.get(i).getMedal().toString())){
-                    case GOLD:
+                switch (competitors.get(i).getMedal().getNameMedal()){
+                    case ModelConstants.GOLD:
                         medalsGold += 1;
                         break;
-                    case SILVER:
+                    case ModelConstants.SILVER:
                         medalsSilver += 1;
                         break;
-                    case Bronze:
+                    case ModelConstants.BRONZE:
                         medalsBronze += 1;
                         break;
                     default:
@@ -53,6 +54,7 @@ public class Delegation {
     }
 
     public Object[] getMedalsOfDelegation(){
+        setMedals();
         return new Object[]{medalsGold, medalsSilver, medalsBronze, getMedalsQuantiti()};
     }
 

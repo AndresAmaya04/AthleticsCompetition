@@ -20,4 +20,13 @@ public class ModelConstants {
     public static final String METERS_100_HURDELS = "100 metros vallas";
     public static final String METERS_200_HURDELS = "200 metros vallas";
     public static final String METERS_400_HURDELS = "400 metros vallas";
+    public static final String DISC = "Disco";
+    public static final String JAVELIN = "Javalina";
+    public static final String HAMMER = "Martillo";
+    public static final String TRIPLE_JUMP = "Salto largo";
+    public static final String LONG_JUMP = "Triple salto";
+    public static final String GOLD = "Oro";
+    public static final String SILVER = "Plata";
+    public static final String BRONZE = "Bronce";
+    public static final String[] COMPETENCE_LIST = {METERS_100, METERS_200, METERS_400, METERS_100_HURDELS, METERS_200_HURDELS, METERS_400_HURDELS,DISC,JAVELIN, HAMMER, TRIPLE_JUMP, LONG_JUMP };
 }

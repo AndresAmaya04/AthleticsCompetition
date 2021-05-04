@@ -1,13 +1,37 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AthleticsCompetition {
+
+    public static final String[] delegationsNames = {"United States", "United Kingdom", "China", "Brazil", "Mexico", "Colombia", "Argentina", "Germany", "Russia", "Japan", "South Korea"};
 
     private ArrayList<Delegation> delegations;
 
     public AthleticsCompetition() {
         this.delegations= new ArrayList();
+        generateDelegations();
+    }
+
+    public void fillDelegations(ArrayList<Competitor> competitors){
+        for (int i=0; i<competitors.size(); i++){
+            addCompetitor(competitors.get(i));
+        }
+    }
+
+    public void showDelegations(){
+        for (int i=0; i<delegations.size(); i++){
+            
+        }
+    }
+
+    private void generateDelegations(){
+        for (int i=0; i<delegationsNames.length; i++){
+            delegations.add(new Delegation(delegationsNames[i]));
+        }
     }
 
     /**
@@ -38,6 +62,32 @@ public class AthleticsCompetition {
         }
     }
 
+    public ArrayList<Competitor> getListCompetitorByCompetenceFemale(String competence){
+        ArrayList<Competitor> competenceList = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> tem = delegations.get(i).getCompetitors();
+            for (int j=0; j<tem.size(); j++){
+                if (tem.get(j).getCompetence().getNameCompetence().equals(competence) && tem.get(j).getGender().getGender().equals("Femenino")){
+                    competenceList.add(tem.get(j));
+                }
+            }
+        }
+        return competenceList;
+    }
+
+    public ArrayList<Competitor> getListCompetitorByCompetenceMale(String competence){
+        ArrayList<Competitor> competenceList = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> tem = delegations.get(i).getCompetitors();
+            for (int j=0; j<tem.size(); j++){
+                if (tem.get(j).getCompetence().getNameCompetence().equals(competence) && tem.get(j).getGender().getGender().equals("Masculino")){
+                    competenceList.add(tem.get(j));
+                }
+            }
+        }
+        return competenceList;
+    }
+
     /**
      * Metodo que lista de competidores por una delegacion
      * @param delegation nombre de la delegacion
@@ -49,7 +99,7 @@ public class AthleticsCompetition {
             Delegation tem = delegations.get(i);
             if (tem.getOriginPlace().equals(delegation)){
                 for (int j=0; j<tem.getSizeOfDelegation(); j++){
-                    competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForSearch());
+                    competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForTest());
                 }
                 break;
             }
@@ -57,5 +107,110 @@ public class AthleticsCompetition {
         return competitors;
     }
 
+    public void setMedalByCompetenceFemale(){
+        ArrayList<Competitor> competitors;
+        for (int i=0; i<ModelConstants.COMPETENCE_LIST.length; i++){
+            competitors = getListCompetitorByCompetenceFemale(ModelConstants.COMPETENCE_LIST[i]);
+            switch (extractScoreType(ModelConstants.COMPETENCE_LIST[i])){
+                case ModelConstants.TIME:
+                    Collections.sort(competitors, Comparator.comparing(Competitor::getTimeResult));
+                    break;
+                case ModelConstants.METERS:
+                    Collections.sort(competitors, Comparator.comparing(Competitor::getMeterResult).reversed());
+                    break;
+            }
+            competitors.get(0).setMedal(Medal.GOLD);
+            competitors.get(1).setMedal(Medal.SILVER);
+            competitors.get(2).setMedal(Medal.BRONZE);
+        }
+    }
 
+    public void setMedalByCompetenceMale(){
+        ArrayList<Competitor> competitors;
+        for (int i=0; i<ModelConstants.COMPETENCE_LIST.length; i++){
+            competitors = getListCompetitorByCompetenceMale(ModelConstants.COMPETENCE_LIST[i]);
+            switch (extractScoreType(ModelConstants.COMPETENCE_LIST[i])){
+                case ModelConstants.TIME:
+                    Collections.sort(competitors, Comparator.comparing(Competitor::getTimeResult));
+                    break;
+                case ModelConstants.METERS:
+                    Collections.sort(competitors, Comparator.comparing(Competitor::getMeterResult).reversed());
+                    break;
+            }
+            competitors.get(0).setMedal(Medal.GOLD);
+            competitors.get(1).setMedal(Medal.SILVER);
+            competitors.get(2).setMedal(Medal.BRONZE);
+        }
+    }
+
+    private String extractScoreType(String string){
+        switch (string){
+            case ModelConstants.METERS_100:
+            case ModelConstants.METERS_100_HURDELS:
+            case ModelConstants.METERS_200:
+            case ModelConstants.METERS_200_HURDELS:
+            case ModelConstants.METERS_400_HURDELS:
+            case ModelConstants.METERS_400:
+                return ModelConstants.TIME;
+            default:
+                return ModelConstants.METERS;
+        }
+    }
+
+    public Competitor[] getGoldenGayAndExperiencePrice(){
+        ArrayList<Competitor> competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        Collections.sort(competitors, Comparator.comparing(Competitor::getDateOfBirth).reversed());
+        return new Competitor[]{competitors.get(0), competitors.get(competitors.size()-1)};
+    }
+
+    public ArrayList<Competitor> extractGoldWinners(){
+        ArrayList<Competitor>competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Competitor> extractSilverWinners(){
+        ArrayList<Competitor>competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.SILVER)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Competitor> extractBronzeWinners(){
+        ArrayList<Competitor>competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Delegation> getDelegations() {
+        return delegations;
+    }
 }

@@ -1,7 +1,7 @@
 package model;
 
 public enum Medal {
-    GOLD("Oro"), SILVER("Plata"), Bronze("Bronce");
+    GOLD("Oro"), SILVER("Plata"), BRONZE("Bronce");
 
     private String nameMedal;
 
