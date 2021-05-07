@@ -48,7 +48,7 @@ public class Delegation {
         return competitors;
     }
 
-    private int getMedalsQuantiti(){
+    public int getMedalsQuantiti(){
         return medalsBronze + medalsGold + medalsSilver;
 
     }

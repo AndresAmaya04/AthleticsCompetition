@@ -16,7 +16,7 @@ public class TestMedals {
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal() != null && temp.get(j).getCompetence().getNameCompetence().equals("100 metros")){
+                if (temp.get(j).getMedal() != null && temp.get(j).getCompetence().getNameCompetence().equals(ModelConstants.LONG_JUMP)){
                     System.out.println(Arrays.toString(temp.get(j).getCompetitorInfoForSearch()) + temp.get(j).getTimeResult());
                 }
             }
