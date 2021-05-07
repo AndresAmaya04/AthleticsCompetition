@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class JsonUtilities {
+    String pathCompetences = "";
 
     private static Gender extractGender(String genderString){
         Gender gender =null;
@@ -37,7 +38,7 @@ public class JsonUtilities {
         return LocalTime.of(0, Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
     }
 
-    public static ArrayList<Competitor> readJson(String fileJson){
+    public ArrayList<Competitor> readJson(String fileJson){
         ArrayList<Competitor> competition = new ArrayList<>();
         JsonArray list;
         try {
@@ -45,7 +46,7 @@ public class JsonUtilities {
             for (int i=0; i<list.size(); i++){
                 JsonObject temp =(JsonObject) list.get(i);
                 Competitor competitor = new Competitor(i+1, (String) temp.get(ModelConstants.NAME), (String) temp.get(ModelConstants.LAST_NAME), (String) temp.get(ModelConstants.COUNTRY),
-                        extractGender((String) temp.get(ModelConstants.GENDER)),getLocalDate((String) temp.get(ModelConstants.DATE)), getCompetence(obtainCompetence(i, ModelConstants.PATH_COMPETENCES)));
+                        extractGender((String) temp.get(ModelConstants.GENDER)),getLocalDate((String) temp.get(ModelConstants.DATE)), getCompetence(obtainCompetence(i)));
                 competition.add(completeScoreCompetitor(competitor, temp.getInteger(ModelConstants.METERS), (String) temp.get(ModelConstants.TIME)));
             }
         } catch (DeserializationException | IOException e) {
@@ -54,7 +55,7 @@ public class JsonUtilities {
         return competition;
     }
 
-    private static Competitor completeScoreCompetitor(Competitor competitor, int meters, String time){
+    private Competitor completeScoreCompetitor(Competitor competitor, int meters, String time){
         switch (competitor.getCompetence().getNameCompetence()){
             case ModelConstants.METERS_100:
             case ModelConstants.METERS_200:
@@ -70,13 +71,22 @@ public class JsonUtilities {
         return competitor;
     }
 
-    private static int obtainCompetence(int index, String pathJson) throws IOException, DeserializationException {
-        JsonArray array = (JsonArray)  Jsoner.deserialize(new FileReader(pathJson));
+    private int obtainCompetence(int index) throws IOException, DeserializationException {
+        JsonArray array = (JsonArray)  Jsoner.deserialize(new FileReader(pathCompetences));
         JsonObject temp = (JsonObject) array.get(index);
         return temp.getInteger(ModelConstants.COMPETENCE);
     }
 
-    private static Competence getCompetence(int index){
+    /**
+     * Metodo que lee y obtiene las competencias de un json(creado para usar el filechooser)
+     * @param pathCompetences
+     */
+    public void setPathCompetences(String pathCompetences) {
+        this.pathCompetences = pathCompetences;
+        System.out.println(pathCompetences);
+    }
+
+    private Competence getCompetence(int index){
         Competence competence;
         switch (index){
             case 1:

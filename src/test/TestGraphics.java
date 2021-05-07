@@ -20,7 +20,7 @@ public class TestGraphics extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         athleticsCompetition = new AthleticsCompetition();
         this.strings = athleticsCompetition.delegationsNames;
-        athleticsCompetition.fillDelegations(JsonUtilities.readJson(ModelConstants.PATH_JSON));
+        //athleticsCompetition.fillDelegations(JsonUtilities.readJson(ModelConstants.PATH_JSON));
         athleticsCompetition.setMedalByCompetenceFemale();
         athleticsCompetition.setMedalByCompetenceMale();
         this.setBackground(Color.decode("#114358"));

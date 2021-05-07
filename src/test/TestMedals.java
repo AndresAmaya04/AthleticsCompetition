@@ -8,8 +8,9 @@ import java.util.Arrays;
 public class TestMedals {
 
     public static void main(String[] args) {
+        JsonUtilities jsonUtilities = new JsonUtilities();
         AthleticsCompetition competition = new AthleticsCompetition();
-        competition.fillDelegations(JsonUtilities.readJson(ModelConstants.PATH_JSON));
+        competition.fillDelegations(jsonUtilities.readJson(ModelConstants.PATH_JSON));
         competition.setMedalByCompetenceFemale();
         competition.setMedalByCompetenceMale();
         ArrayList<Delegation> delegations = competition.getDelegations();

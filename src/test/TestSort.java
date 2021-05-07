@@ -10,8 +10,9 @@ import java.util.*;
 public class TestSort {
 
     public static void main(String[] args) {
+        JsonUtilities jsonUtilities = new JsonUtilities();
         AthleticsCompetition competition = new AthleticsCompetition();
-        competition.fillDelegations(JsonUtilities.readJson(ModelConstants.PATH_JSON));
+        competition.fillDelegations(jsonUtilities.readJson(ModelConstants.PATH_JSON));
         ArrayList<Competitor> list = competition.getListCompetitorByCompetenceFemale("Disco");
         Collections.sort(list, Comparator.comparing(Competitor:: getDateOfBirth).reversed());
         for (int i=0; i< list.size(); i++){
