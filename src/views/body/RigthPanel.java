@@ -1,5 +1,7 @@
 package views.body;
 
+import presenter.Command;
+import presenter.Presenter;
 import views.ConstantsUI;
 
 import javax.swing.*;
@@ -11,27 +13,29 @@ public class RigthPanel extends JPanel {
     int heightS = Toolkit.getDefaultToolkit().getScreenSize().height;
     float ws = (float) (widthS*0.30);
     float hs = (float) (heightS*0.70);
+
     float fwbuttons = (float) (widthS*0.30);
     float fhbuttons = (float) (heightS*0.04);
+
     float fwGif = (float) (widthS*0.30);
     float fhGif = (float) (heightS*0.28);
     /**
      * Metodo constructor
      */
-    public RigthPanel() {
+    public RigthPanel(Presenter presenter) {
 
 //        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         this.setBackground(Color.decode("#276E90"));
 
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
 
-        initicomponents();
+        initicomponents(presenter);
     }
 
     /**
      * Metodo que crea los componentes del panel RigthPanel
      */
-    public void initicomponents(){
+    public void initicomponents(Presenter presenter){
         JLabel jLabelgif = new JLabel();
         jLabelgif.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_GIF)).getImage().getScaledInstance((int) fwGif,(int) fhGif, Image.SCALE_FAST)));
 
@@ -41,6 +45,8 @@ public class RigthPanel extends JPanel {
         jButton1.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton1.setForeground(Color.LIGHT_GRAY);
         jButton1.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
+        jButton1.setActionCommand(Command.C_INFO_RUNNER.toString());
+        jButton1.addActionListener(presenter);
 
         JButton jButton2 = new JButton("Medallas por delegacion");
         jButton2.setBorderPainted(false);
@@ -48,6 +54,8 @@ public class RigthPanel extends JPanel {
         jButton2.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton2.setForeground(Color.LIGHT_GRAY);
         jButton2.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
+        jButton2.setActionCommand(Command.C_MEDALS_DELEGATIONS.toString());
+        jButton2.addActionListener(presenter);
 
         JButton jButton3 = new JButton("Horariro por competencia");
         jButton3.setBorderPainted(false);

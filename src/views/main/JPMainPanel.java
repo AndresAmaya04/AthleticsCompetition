@@ -34,7 +34,7 @@ public class JPMainPanel extends JPanel {
 
     public void initComponents(Presenter presenter){
         headerPanel = new HeaderPanel(presenter);
-        jBodyPanel = new BodyPanel();
+        jBodyPanel = new BodyPanel(presenter);
         footerPanel = new FooterPanel();
 
 //        this.add(headerPanel);
@@ -43,6 +43,16 @@ public class JPMainPanel extends JPanel {
         this.add(headerPanel,BorderLayout.NORTH);
         this.add(jBodyPanel,BorderLayout.CENTER);
         this.add(footerPanel,BorderLayout.SOUTH);
+    }
+
+    public void changePanel1(){
+        jBodyPanel.changePanel1();
+        this.validate();
+    }
+
+    public void changePanelInit(){
+        jBodyPanel.changePanelInit();
+        this.validate();
     }
 
     public String filechooser(){
