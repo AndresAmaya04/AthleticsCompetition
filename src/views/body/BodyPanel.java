@@ -10,6 +10,7 @@ public class BodyPanel extends JPanel{
 
     LeftPanel leftPanel;
     PanelMedals medals;
+    private PanelFindCompetitor panelFindCompetitor;
 
     public BodyPanel(Presenter presenter) {
         this.setBackground(Color.decode("#A9A9A9"));

@@ -50,7 +50,7 @@ public class TestJSon {
                         extractGender((String) temp.get("gender")),getLocalDate((String) temp.get("date_birth")), null));
             }
             for (int i=0; i<competition.size(); i++){
-                System.out.println(Arrays.toString(competition.get(i).getCompetitorInfoForTest()));
+               // System.out.println(Arrays.toString(competition.get(i).getCompetitorInfoForTest()));
                 System.out.println(obtainCompetence(i));
             }
         } catch (DeserializationException | IOException e) {

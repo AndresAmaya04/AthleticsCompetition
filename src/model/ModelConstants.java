@@ -29,4 +29,6 @@ public class ModelConstants {
     public static final String SILVER = "Plata";
     public static final String BRONZE = "Bronce";
     public static final String[] COMPETENCE_LIST = {METERS_100, METERS_200, METERS_400, METERS_100_HURDELS, METERS_200_HURDELS, METERS_400_HURDELS,DISC,JAVELIN, HAMMER, TRIPLE_JUMP, LONG_JUMP };
+    public static final String[] delegationsNames = {"United States", "United Kingdom", "China", "Brazil", "Mexico", "Colombia", "Argentina", "Germany", "Russia", "Japan", "South Korea"};
+    public static final  String[] MEDALS = {Medal.GOLD.getNameMedal(), Medal.SILVER.getNameMedal(), Medal.BRONZE.getNameMedal()};
 }

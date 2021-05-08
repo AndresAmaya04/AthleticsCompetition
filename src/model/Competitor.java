@@ -101,10 +101,6 @@ public class Competitor {
     }
 
     public Object[] getCompetitorInfoForSearch(){
-        return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName ,this.medal.getNameMedal(), this.gender.getGender()};
-    }
-
-    public Object[] getCompetitorInfoForTest(){
-        return new Object[]{this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.competence.getNameCompetence()};
+        return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation};
     }
 }

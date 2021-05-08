@@ -7,8 +7,6 @@ import java.util.Comparator;
 
 public class AthleticsCompetition {
 
-    public static final String[] delegationsNames = {"United States", "United Kingdom", "China", "Brazil", "Mexico", "Colombia", "Argentina", "Germany", "Russia", "Japan", "South Korea"};
-
     private ArrayList<Delegation> delegations;
 
     public AthleticsCompetition() {
@@ -29,8 +27,8 @@ public class AthleticsCompetition {
     }
 
     private void generateDelegations(){
-        for (int i=0; i<delegationsNames.length; i++){
-            delegations.add(new Delegation(delegationsNames[i]));
+        for (int i=0; i<ModelConstants.delegationsNames.length; i++){
+            delegations.add(new Delegation(ModelConstants.delegationsNames[i]));
         }
     }
 
@@ -99,7 +97,7 @@ public class AthleticsCompetition {
             Delegation tem = delegations.get(i);
             if (tem.getOriginPlace().equals(delegation)){
                 for (int j=0; j<tem.getSizeOfDelegation(); j++){
-                    competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForTest());
+                    competitors.add(tem.getIndexCompetitor(j).getCompetitorInfoForSearch());
                 }
                 break;
             }
@@ -171,38 +169,12 @@ public class AthleticsCompetition {
         return new Competitor[]{competitors.get(0), competitors.get(competitors.size()-1)};
     }
 
-    public ArrayList<Competitor> extractGoldWinners(){
+    public ArrayList<Competitor> extractWinnersByMedal(String medal){
         ArrayList<Competitor>competitors = new ArrayList();
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
-                    competitors.add(temp.get(j));
-                }
-            }
-        }
-        return competitors;
-    }
-
-    public ArrayList<Competitor> extractSilverWinners(){
-        ArrayList<Competitor>competitors = new ArrayList();
-        for (int i=0; i<delegations.size(); i++){
-            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
-            for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.SILVER)){
-                    competitors.add(temp.get(j));
-                }
-            }
-        }
-        return competitors;
-    }
-
-    public ArrayList<Competitor> extractBronzeWinners(){
-        ArrayList<Competitor>competitors = new ArrayList();
-        for (int i=0; i<delegations.size(); i++){
-            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
-            for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
+                if (temp.get(j).getMedal().getNameMedal().equals(medal)){
                     competitors.add(temp.get(j));
                 }
             }

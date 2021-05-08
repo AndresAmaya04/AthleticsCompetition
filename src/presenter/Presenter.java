@@ -56,6 +56,10 @@ public class Presenter implements ActionListener {
                 break;
             case C_BAR_GRAPHIC:
                 break;
+            case SEARCH_INFO_COMPETITOR:
+                break;
+            case SEARCH_DELEGATION_LIST:
+                break;
             default:
                 break;
         }
