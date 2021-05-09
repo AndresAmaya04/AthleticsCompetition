@@ -42,7 +42,7 @@ public class PanelMedalsByCompetence extends JPanel {
         button = new JButton("Buscar");
         button.addActionListener(presenter);
         button.setActionCommand(Command.C_MEDALS_DELEGATIONS.toString());
-        panel.add(panel);
+        this.add(panel);
 
         defaultTableModel = new DefaultTableModel();
         String[] headers = {"Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion"};

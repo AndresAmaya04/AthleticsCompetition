@@ -169,12 +169,38 @@ public class AthleticsCompetition {
         return new Competitor[]{competitors.get(0), competitors.get(competitors.size()-1)};
     }
 
-    public ArrayList<Competitor> extractWinnersByMedal(String medal){
+    public ArrayList<Competitor> extractGoldWinners(){
         ArrayList<Competitor>competitors = new ArrayList();
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(medal)){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Competitor> extractSilverWinners(){
+        ArrayList<Competitor>competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.SILVER)){
+                    competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Competitor> extractBronzeWinners(){
+        ArrayList<Competitor>competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
                     competitors.add(temp.get(j));
                 }
             }

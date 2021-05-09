@@ -11,6 +11,10 @@ public class BodyPanel extends JPanel{
     LeftPanel leftPanel;
     PanelMedals medals;
     private PanelFindCompetitor panelFindCompetitor;
+    private PanelCompetitorsByDelgation panelCompetitorsByDelgation;
+    private PanelMedalsByCompetence panelMedalsByCompetence;
+    private PanelScores panelScores;
+
 
     public BodyPanel(Presenter presenter) {
         this.setBackground(Color.decode("#A9A9A9"));
@@ -30,6 +34,11 @@ public class BodyPanel extends JPanel{
          leftPanel = new LeftPanel();
          medals = new PanelMedals();
         RigthPanel rigthPanel = new RigthPanel(presenter);
+        panelFindCompetitor = new PanelFindCompetitor(presenter);
+        panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
+        //panelMedals = new PanelMedals();
+        panelMedalsByCompetence = new PanelMedalsByCompetence(presenter);
+        panelScores = new PanelScores(presenter);
 
 //        this.add(leftPanel,BorderLayout.WEST);
         this.add(rigthPanel,BorderLayout.EAST);
@@ -37,16 +46,63 @@ public class BodyPanel extends JPanel{
 
     public void changePanel1(){
         medals.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelMedalsByCompetence.setVisible(false);
+        panelScores.setVisible(false);
         leftPanel.setVisible(true);
         this.add(leftPanel,BorderLayout.WEST);
     }
 
     public void changePanelInit(){
         leftPanel.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelMedalsByCompetence.setVisible(false);
+        panelScores.setVisible(false);
         medals.setVisible(true);
         this.add(medals,BorderLayout.WEST);
     }
 
+    public void chanPanelFindCompetitor(){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelMedalsByCompetence.setVisible(false);
+        panelScores.setVisible(false);
+        medals.setVisible(false);
+        panelFindCompetitor.setVisible(true);
+        this.add(panelFindCompetitor, BorderLayout.WEST);
+    }
+
+    public void chanPanelCompetitorsDelegation(){
+        leftPanel.setVisible(false);
+        panelMedalsByCompetence.setVisible(false);
+        panelScores.setVisible(false);
+        medals.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(true);
+        this.add(panelFindCompetitor, BorderLayout.WEST);
+    }
+
+    public void chanPanelMedalsCompetence(){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelScores.setVisible(false);
+        medals.setVisible(false);
+        panelMedalsByCompetence.setVisible(true);
+        this.add(panelFindCompetitor, BorderLayout.WEST);
+    }
+
+    public void chanPanelScore(){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelMedalsByCompetence.setVisible(false);
+        medals.setVisible(false);
+        panelScores.setVisible(true);
+        this.add(panelFindCompetitor, BorderLayout.WEST);
+    }
 
     public void changeLanguage(){
 
