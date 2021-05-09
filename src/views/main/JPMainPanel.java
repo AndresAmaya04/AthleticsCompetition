@@ -55,6 +55,26 @@ public class JPMainPanel extends JPanel {
         this.validate();
     }
 
+    public void changePanelFindCompetitor(){
+        jBodyPanel.chanPanelFindCompetitor();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetence(){
+        jBodyPanel.changePanelMedalsCompetence();
+        this.validate();
+    }
+
+    public void changePanelCompetitorsDelegation(){
+        jBodyPanel.changePanelCompetitorsDelegation();
+        this.validate();
+    }
+
+    public void changePanelScore(){
+        jBodyPanel.changePanelScore();
+        this.validate();
+    }
+
     public String filechooser(){
         return headerPanel.filechooser();
     }

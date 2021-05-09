@@ -39,6 +39,7 @@ public class BodyPanel extends JPanel{
         //panelMedals = new PanelMedals();
         panelMedalsByCompetence = new PanelMedalsByCompetence(presenter);
         panelScores = new PanelScores(presenter);
+        panelScores = new PanelScores(presenter);
 
 //        this.add(leftPanel,BorderLayout.WEST);
         this.add(rigthPanel,BorderLayout.EAST);
@@ -74,34 +75,34 @@ public class BodyPanel extends JPanel{
         this.add(panelFindCompetitor, BorderLayout.WEST);
     }
 
-    public void chanPanelCompetitorsDelegation(){
+    public void changePanelCompetitorsDelegation(){
         leftPanel.setVisible(false);
         panelMedalsByCompetence.setVisible(false);
         panelScores.setVisible(false);
         medals.setVisible(false);
         panelFindCompetitor.setVisible(false);
         panelCompetitorsByDelgation.setVisible(true);
-        this.add(panelFindCompetitor, BorderLayout.WEST);
+        this.add(panelCompetitorsByDelgation, BorderLayout.WEST);
     }
 
-    public void chanPanelMedalsCompetence(){
+    public void changePanelMedalsCompetence(){
         leftPanel.setVisible(false);
         panelCompetitorsByDelgation.setVisible(false);
         panelFindCompetitor.setVisible(false);
         panelScores.setVisible(false);
         medals.setVisible(false);
         panelMedalsByCompetence.setVisible(true);
-        this.add(panelFindCompetitor, BorderLayout.WEST);
+        this.add(panelMedalsByCompetence, BorderLayout.WEST);
     }
 
-    public void chanPanelScore(){
+    public void changePanelScore(){
         leftPanel.setVisible(false);
         panelCompetitorsByDelgation.setVisible(false);
         panelFindCompetitor.setVisible(false);
         panelMedalsByCompetence.setVisible(false);
         medals.setVisible(false);
         panelScores.setVisible(true);
-        this.add(panelFindCompetitor, BorderLayout.WEST);
+        this.add(panelScores, BorderLayout.WEST);
     }
 
     public void changeLanguage(){

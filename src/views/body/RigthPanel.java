@@ -63,6 +63,8 @@ public class RigthPanel extends JPanel {
         jButton3.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton3.setForeground(Color.LIGHT_GRAY);
         jButton3.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
+        jButton3.setActionCommand(Command.C_SCHEDULE_PER_COMPETENCE.toString());
+        jButton3.addActionListener(presenter);
 
         JButton jButton4 = new JButton("Lista de competidores por delegacion");
         jButton4.setBorderPainted(false);
@@ -70,6 +72,8 @@ public class RigthPanel extends JPanel {
         jButton4.setFont( new Font("Serif", Font.PLAIN, 22));
         jButton4.setForeground(Color.LIGHT_GRAY);
         jButton4.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
+        jButton4.setActionCommand(Command.C_LIST_COMPETITOR.toString());
+        jButton4.addActionListener(presenter);
 
         JButton jButton5 = new JButton("Horario");
         jButton5.setBorderPainted(false);
@@ -84,6 +88,8 @@ public class RigthPanel extends JPanel {
         jButton6.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton6.setForeground(Color.LIGHT_GRAY);
         jButton6.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
+        jButton6.setActionCommand(Command.C_GENERAL_RESULTS.toString());
+        jButton6.addActionListener(presenter);
 
         JButton jButton7 = new JButton("Oro por competencia");
         jButton7.setBorderPainted(false);

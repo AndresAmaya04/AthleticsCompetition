@@ -37,16 +37,21 @@ public class Presenter implements ActionListener {
             case C_CHANGE_ENGLISH:
                 break;
             case C_INFO_RUNNER:
-            jfMainWindow.changePanelInit();
+                jfMainWindow.changePanelFindCompetitor();
                 break;
             case C_MEDALS_DELEGATIONS:
-                jfMainWindow.changePanel1();
+                //Cambiar este para que sea una por una
+                jfMainWindow.changePanelMedalsCompetence();
                 break;
             case C_SCHEDULE_PER_COMPETENCE:
+                break;
+            case C_LIST_COMPETITOR:
+                jfMainWindow.changePanelCompetitorsDelegation();
                 break;
             case C_SCHEDULE:
                 break;
             case C_GENERAL_RESULTS:
+                jfMainWindow.changePanelScore();
                 break;
             case C_GOLDS:
                 break;

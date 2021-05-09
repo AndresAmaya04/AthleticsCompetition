@@ -47,6 +47,26 @@ public class JfMainWindow extends JFrame {
         this.validate();
     }
 
+    public void changePanelFindCompetitor(){
+        jpMainPanel.changePanelFindCompetitor();
+        this.validate();
+    }
+
+    public void changePanelCompetitorsDelegation(){
+        jpMainPanel.changePanelCompetitorsDelegation();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetence(){
+        jpMainPanel.changePanelMedalsCompetence();
+        this.validate();
+    }
+
+    public void changePanelScore(){
+        jpMainPanel.changePanelScore();
+        this.validate();
+    }
+
     public String filechooser(){
         return jpMainPanel.filechooser();
     }
