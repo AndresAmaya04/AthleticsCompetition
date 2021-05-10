@@ -60,8 +60,18 @@ public class JPMainPanel extends JPanel {
         this.validate();
     }
 
-    public void changePanelMedalsCompetence(){
-        jBodyPanel.changePanelMedalsCompetence();
+    public void changePanelMedalsCompetenceGold(){
+        jBodyPanel.changePanelMedalsCompetenceGold();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetenceSilver(){
+        jBodyPanel.changePanelMedalsCompetenceSilver();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetenceBronze(){
+        jBodyPanel.changePanelMedalsCompetenceBronze();
         this.validate();
     }
 

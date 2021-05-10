@@ -57,8 +57,18 @@ public class JfMainWindow extends JFrame {
         this.validate();
     }
 
-    public void changePanelMedalsCompetence(){
-        jpMainPanel.changePanelMedalsCompetence();
+    public void changePanelMedalsCompetenceGold(){
+        jpMainPanel.changePanelMedalsCompetenceGold();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetenceSilver(){
+        jpMainPanel.changePanelMedalsCompetenceSilver();
+        this.validate();
+    }
+
+    public void changePanelMedalsCompetenceBronze(){
+        jpMainPanel.changePanelMedalsCompetenceBronze();
         this.validate();
     }
 

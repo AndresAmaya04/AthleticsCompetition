@@ -40,8 +40,6 @@ public class Presenter implements ActionListener {
                 jfMainWindow.changePanelFindCompetitor();
                 break;
             case C_MEDALS_DELEGATIONS:
-                //Cambiar este para que sea una por una
-                jfMainWindow.changePanelMedalsCompetence();
                 break;
             case C_SCHEDULE_PER_COMPETENCE:
                 break;
@@ -54,10 +52,13 @@ public class Presenter implements ActionListener {
                 jfMainWindow.changePanelScore();
                 break;
             case C_GOLDS:
+                jfMainWindow.changePanelMedalsCompetenceGold();
                 break;
             case C_SILVERS:
+                jfMainWindow.changePanelMedalsCompetenceSilver();
                 break;
             case C_BRONZE:
+                jfMainWindow.changePanelMedalsCompetenceBronze();
                 break;
             case C_BAR_GRAPHIC:
                 break;

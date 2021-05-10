@@ -60,6 +60,27 @@ public class AthleticsCompetition {
         }
     }
 
+    public ArrayList<Competitor> getOrderOfCompetition(String competition, String gender){
+        ArrayList<Competitor> competitors = new ArrayList<>();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temList = delegations.get(i).getCompetitors();
+            for (int j=0; j<temList.size(); j++){
+                if (temList.get(j).getCompetence().getNameCompetence().equalsIgnoreCase(competition) && temList.get(j).getGender().getGender().equalsIgnoreCase(gender)){
+                    competitors.add(temList.get(j));
+                }
+            }
+        }
+        switch (extractScoreType(competition)){
+            case ModelConstants.TIME:
+                Collections.sort(competitors, Comparator.comparing(Competitor::getTimeResult));
+                break;
+            case ModelConstants.METERS:
+                Collections.sort(competitors, Comparator.comparing(Competitor::getMeterResult).reversed());
+                break;
+        }
+        return competitors;
+    }
+
     public ArrayList<Competitor> getListCompetitorByCompetenceFemale(String competence){
         ArrayList<Competitor> competenceList = new ArrayList();
         for (int i=0; i<delegations.size(); i++){
@@ -202,6 +223,20 @@ public class AthleticsCompetition {
             for (int j=0; j<temp.size(); j++){
                 if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
                     competitors.add(temp.get(j));
+                }
+            }
+        }
+        return competitors;
+    }
+
+    public ArrayList<Object[]> findCompetitor(String name){
+        ArrayList<Object[]> competitors = new ArrayList();
+        for (int i=0; i<delegations.size(); i++){
+            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
+            for (int j=0; j<temp.size(); j++){
+                Competitor aux = temp.get(j);
+                if (aux.getName().contains(name) || aux.getLastName().contains(name)){
+                    competitors.add(aux.getCompetitorInfoForSearch());
                 }
             }
         }

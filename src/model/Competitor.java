@@ -103,4 +103,15 @@ public class Competitor {
     public Object[] getCompetitorInfoForSearch(){
         return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation};
     }
+
+    public Object[] getCompetitorInfoPanelScores(){
+        return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation};
+    }
+
+    public Object[] getCompetitorInfoForMedals(){
+        if (medal != null){
+            return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.medal};
+        }
+        return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, "N/A"};
+    }
 }

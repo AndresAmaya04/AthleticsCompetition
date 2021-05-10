@@ -1,5 +1,6 @@
 package views.body;
 
+import model.Gender;
 import model.ModelConstants;
 import presenter.Command;
 import presenter.Presenter;
@@ -21,6 +22,7 @@ public class PanelScores extends JPanel {
     private JLabel label;
     private JButton search;
     private JComboBox<String> stringJComboBox;
+    private JComboBox<String> genderComboBox;
     private DefaultTableModel defaultTableModel;
     private JTable jTable;
     private JScrollPane jScrollPane;
@@ -52,6 +54,13 @@ public class PanelScores extends JPanel {
         stringJComboBox.setBorder(BorderFactory.createTitledBorder("     Ingrese competencia a ver resultados"));
         panel.add(stringJComboBox);
 
+        genderComboBox = new JComboBox();
+        genderComboBox.addItem(Gender.MALE.getGender());
+        genderComboBox.addItem(Gender.FEMALE.getGender());
+        genderComboBox.setBorder(BorderFactory.createTitledBorder("    Ingrese genero de la competencia"));
+        genderComboBox.setPreferredSize(new Dimension((int)wfi,(int)hfi));
+        panel.add(genderComboBox);
+
         search = new JButton("Buscar");
         search.setBorderPainted(false);
         search.setBackground(Color.decode("#C4DFE6"));
@@ -74,5 +83,9 @@ public class PanelScores extends JPanel {
 
     public String getCompetenceComboBox(){
         return String.valueOf(stringJComboBox.getSelectedItem());
+    }
+
+    public String getGenderBox(){
+        return String.valueOf(genderComboBox.getSelectedItem());
     }
 }

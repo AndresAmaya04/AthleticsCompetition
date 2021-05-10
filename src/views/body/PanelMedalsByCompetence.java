@@ -20,34 +20,24 @@ public class PanelMedalsByCompetence extends JPanel {
     float hfi = (float) (heightS*0.05);
 
     private JLabel label;
-    private JComboBox<String> medals;
     private JButton button;
     private DefaultTableModel defaultTableModel;
     private JTable jTable;
     private JScrollPane jScrollPane;
 
-    public PanelMedalsByCompetence(Presenter presenter) {
+    public PanelMedalsByCompetence(Presenter presenter, String medal) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
-        initComponents(presenter);
+        initComponents(presenter, medal);
     }
 
-    private void initComponents(Presenter presenter){
+    private void initComponents(Presenter presenter, String medal){
         JPanel panel = new JPanel();
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        label = new JLabel("Medallas de cada competencia");
+        label = new JLabel("Medallas de "+ medal+ " cada competencia");
         label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(label);
-        medals  = new JComboBox();
-        medals.setBackground(Color.decode("#C4DFE6"));
-        medals.setBorder(BorderFactory.createTitledBorder("Seleccione una medalla"));
-        medals.setPreferredSize(new Dimension((int)wfi,(int)hfi));
-        panel.add(medals);
-        for (int i=0; i<ModelConstants.MEDALS.length; i++){
-            medals.addItem(ModelConstants.MEDALS[i]);
-        }
-
         button = new JButton("Buscar");
         button.setBorderPainted(false);
         button.setBackground(Color.decode("#C4DFE6"));
@@ -58,7 +48,7 @@ public class PanelMedalsByCompetence extends JPanel {
         this.add(panel);
 
         defaultTableModel = new DefaultTableModel();
-        String[] headers = {"Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion"};
+        String[] headers = {"Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion", "Medalla"};
         defaultTableModel.setColumnIdentifiers(headers);
         jTable = new JTable();
         jTable.setModel(defaultTableModel);
@@ -66,9 +56,5 @@ public class PanelMedalsByCompetence extends JPanel {
         jScrollPane = new JScrollPane(jTable);
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
-    }
-
-    public String getItemComboBox(){
-        return String.valueOf(this.medals.getSelectedItem());
     }
 }
