@@ -112,4 +112,44 @@ public class JPMainPanel extends JPanel {
     public String getNameByDelegationSearch(){
         return jBodyPanel.getNameByDelegationSearch();
     }
+
+    public void addRowGold(Object[] objects){
+        jBodyPanel.addRowGold(objects);
+    }
+
+    public void addRowSilver(Object[] objects){
+        jBodyPanel.addRowSilver(objects);
+    }
+
+    public void addRowBronze(Object[] objects){
+        jBodyPanel.addRowBronze(objects);
+    }
+
+    public void cleanTableGold(){
+        jBodyPanel.cleanTableGold();
+    }
+
+    public void cleanTableSilver(){
+        jBodyPanel.cleanTableSilver();
+    }
+
+    public void cleanTableBronze(){
+        jBodyPanel.cleanTableBronze();
+    }
+
+    public String getCompetenceComboBoxScores(){
+        return jBodyPanel.getCompetenceComboBoxScores();
+    }
+
+    public String getGenderBoxScore(){
+        return jBodyPanel.getGenderBoxScore();
+    }
+
+    public void cleanPanelScores(){
+        jBodyPanel.cleanPanelScores();
+    }
+
+    public void addRowScores(Object[]objects){
+        jBodyPanel.addRowScores(objects);
+    }
 }

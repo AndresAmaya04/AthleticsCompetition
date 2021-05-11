@@ -186,7 +186,7 @@ public class AthleticsCompetition {
                 }
             }
         }
-        Collections.sort(competitors, Comparator.comparing(Competitor::getDateOfBirth).reversed());
+        Collections.sort(competitors, Comparator.comparing(Competitor::getDateOfBirth));
         return new Competitor[]{competitors.get(0), competitors.get(competitors.size()-1)};
     }
 
@@ -195,7 +195,7 @@ public class AthleticsCompetition {
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
+                if (temp.get(j).getMedal() != null && temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
                     competitors.add(temp.get(j));
                 }
             }
@@ -208,7 +208,7 @@ public class AthleticsCompetition {
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.SILVER)){
+                if (temp.get(j).getMedal() != null && temp.get(j).getMedal().getNameMedal().equals(ModelConstants.SILVER)){
                     competitors.add(temp.get(j));
                 }
             }
@@ -221,7 +221,7 @@ public class AthleticsCompetition {
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
+                if (temp.get(j).getMedal() != null && temp.get(j).getMedal().getNameMedal().equals(ModelConstants.BRONZE)){
                     competitors.add(temp.get(j));
                 }
             }
@@ -245,5 +245,11 @@ public class AthleticsCompetition {
 
     public ArrayList<Delegation> getDelegations() {
         return delegations;
+    }
+
+    public void setMedalsToAllDelegations(){
+        for (int i=0; i<delegations.size(); i++){
+            delegations.get(i).setMedals();
+        }
     }
 }

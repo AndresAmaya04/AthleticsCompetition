@@ -10,22 +10,15 @@ public class TestMedals {
     public static void main(String[] args) {
         JsonUtilities jsonUtilities = new JsonUtilities();
         AthleticsCompetition competition = new AthleticsCompetition();
-        competition.fillDelegations(jsonUtilities.readJson(ModelConstants.PATH_JSON));
+        competition.fillDelegations(jsonUtilities.readJson());
         competition.setMedalByCompetenceFemale();
         competition.setMedalByCompetenceMale();
         ArrayList<Delegation> delegations = competition.getDelegations();
-        for (int i=0; i<delegations.size(); i++){
-            ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
-            for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal() != null && temp.get(j).getCompetence().getNameCompetence().equals(ModelConstants.LONG_JUMP)){
-                    System.out.println(Arrays.toString(temp.get(j).getCompetitorInfoForSearch()) + temp.get(j).getTimeResult());
-                }
-            }
-
-        }
-        for (int i=0; i<delegations.size(); i++){
-            System.out.println(delegations.get(i).getOriginPlace());
-            System.out.println(Arrays.toString(competition.medalForDelegation(delegations.get(i).getOriginPlace())));
+        ArrayList<Competitor> competitors = competition.extractGoldWinners();
+        competitors.addAll(competition.extractSilverWinners());
+        competitors.addAll(competition.extractBronzeWinners());
+        for (int i=0; i<competitors.size(); i++){
+            System.out.println(Arrays.toString(competitors.get(i).getCompetitorInfoForMedals()));
         }
     }
 }

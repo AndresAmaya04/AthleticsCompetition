@@ -104,4 +104,44 @@ public class JfMainWindow extends JFrame {
     public String getNameByDelegationSearch(){
         return jpMainPanel.getNameByDelegationSearch();
     }
+
+    public void addRowGold(Object[] objects){
+        jpMainPanel.addRowGold(objects);
+    }
+
+    public void addRowSilver(Object[] objects){
+        jpMainPanel.addRowSilver(objects);
+    }
+
+    public void addRowBronze(Object[] objects){
+        jpMainPanel.addRowBronze(objects);
+    }
+
+    public void cleanTableGold(){
+        jpMainPanel.cleanTableGold();
+    }
+
+    public void cleanTableSilver(){
+        jpMainPanel.cleanTableSilver();
+    }
+
+    public void cleanTableBronze(){
+        jpMainPanel.cleanTableBronze();
+    }
+
+    public String getCompetenceComboBoxScores(){
+        return jpMainPanel.getCompetenceComboBoxScores();
+    }
+
+    public String getGenderBoxScore(){
+        return jpMainPanel.getGenderBoxScore();
+    }
+
+    public void cleanPanelScores(){
+        jpMainPanel.cleanPanelScores();
+    }
+
+    public void addRowScores(Object[]objects){
+        jpMainPanel.addRowScores(objects);
+    }
 }

@@ -55,6 +55,23 @@ public class JsonUtilities {
         return competition;
     }
 
+    public ArrayList<Competitor> readJson(){
+        ArrayList<Competitor> competition = new ArrayList<>();
+        JsonArray list;
+        try {
+            list = (JsonArray) Jsoner.deserialize(new FileReader(ModelConstants.PATH_JSON));
+            for (int i=0; i<list.size(); i++){
+                JsonObject temp =(JsonObject) list.get(i);
+                Competitor competitor = new Competitor(i+1, (String) temp.get(ModelConstants.NAME), (String) temp.get(ModelConstants.LAST_NAME), (String) temp.get(ModelConstants.COUNTRY),
+                        extractGender((String) temp.get(ModelConstants.GENDER)),getLocalDate((String) temp.get(ModelConstants.DATE)), getCompetence(obtainCompetenceTest(i)));
+                competition.add(completeScoreCompetitor(competitor, temp.getInteger(ModelConstants.METERS), (String) temp.get(ModelConstants.TIME)));
+            }
+        } catch (DeserializationException | IOException e) {
+            e.printStackTrace();
+        }
+        return competition;
+    }
+
     private Competitor completeScoreCompetitor(Competitor competitor, int meters, String time){
         switch (competitor.getCompetence().getNameCompetence()){
             case ModelConstants.METERS_100:
@@ -73,6 +90,12 @@ public class JsonUtilities {
 
     private int obtainCompetence(int index) throws IOException, DeserializationException {
         JsonArray array = (JsonArray)  Jsoner.deserialize(new FileReader(pathCompetences));
+        JsonObject temp = (JsonObject) array.get(index);
+        return temp.getInteger(ModelConstants.COMPETENCE);
+    }
+
+    private int obtainCompetenceTest(int index) throws IOException, DeserializationException {
+        JsonArray array = (JsonArray)  Jsoner.deserialize(new FileReader(ModelConstants.PATH_COMPETENCES));
         JsonObject temp = (JsonObject) array.get(index);
         return temp.getInteger(ModelConstants.COMPETENCE);
     }

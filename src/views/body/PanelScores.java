@@ -66,7 +66,7 @@ public class PanelScores extends JPanel {
         search.setBackground(Color.decode("#C4DFE6"));
         search.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         search.addActionListener(presenter);
-        search.setActionCommand(Command.SEARCH_INFO_COMPETITOR.toString());
+        search.setActionCommand(Command.SCORE_BUTTON.toString());
         panel.add(search);
         this.add(panel);
 
@@ -87,5 +87,13 @@ public class PanelScores extends JPanel {
 
     public String getGenderBox(){
         return String.valueOf(genderComboBox.getSelectedItem());
+    }
+
+    public void cleanPanelScores(){
+        defaultTableModel.setNumRows(0);
+    }
+
+    public void addRowScores(Object[]objects){
+        defaultTableModel.addRow(objects);
     }
 }

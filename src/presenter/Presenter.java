@@ -76,6 +76,36 @@ public class Presenter implements ActionListener {
                     jfMainWindow.addRowTableByDelegation(competitor);
                 }
                 break;
+            case LIST_GOLDS:
+                jfMainWindow.cleanTableGold();
+                ArrayList<Competitor> competitorsGold = athleticsCompetition.extractGoldWinners();
+                for (Competitor competitor: competitorsGold){
+                    jfMainWindow.addRowGold(competitor.getCompetitorInfoForMedals());
+                }
+                break;
+            case LIST_SILVERS:
+                jfMainWindow.cleanTableSilver();
+                ArrayList<Competitor> competitorsSilver = athleticsCompetition.extractSilverWinners();
+                for (Competitor competitor: competitorsSilver){
+                    jfMainWindow.addRowSilver(competitor.getCompetitorInfoForMedals());
+                }
+                break;
+            case LIST_BRONZES:
+                jfMainWindow.cleanTableBronze();
+                ArrayList<Competitor> competitorsBronze = athleticsCompetition.extractBronzeWinners();
+                for (Competitor competitor: competitorsBronze){
+                    jfMainWindow.addRowBronze(competitor.getCompetitorInfoForMedals());
+                }
+                break;
+            case SCORE_BUTTON:
+                jfMainWindow.cleanPanelScores();
+                ArrayList<Competitor> competitorsScore = athleticsCompetition.getOrderOfCompetition(jfMainWindow.getCompetenceComboBoxScores(), jfMainWindow.getGenderBoxScore());
+                for (int i=0; i<competitorsScore.size(); i++){
+                    Object[] info = new Object[]{i+1, null, null, null, null, null, null};
+                    System.arraycopy(competitorsScore.get(i).getCompetitorInfoPanelScores(), 0, info, 1, competitorsScore.get(i).getCompetitorInfoPanelScores().length);
+                    jfMainWindow.addRowScores(info);
+                }
+                break;
             default:
                 break;
         }
@@ -88,5 +118,6 @@ public class Presenter implements ActionListener {
         athleticsCompetition.fillDelegations(jsonUtilities.readJson(auxPath));
         athleticsCompetition.setMedalByCompetenceMale();
         athleticsCompetition.setMedalByCompetenceFemale();
+        athleticsCompetition.setMedalsToAllDelegations();
     }
 }

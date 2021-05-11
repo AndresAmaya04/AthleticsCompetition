@@ -25,13 +25,13 @@ public class PanelMedalsByCompetence extends JPanel {
     private JTable jTable;
     private JScrollPane jScrollPane;
 
-    public PanelMedalsByCompetence(Presenter presenter, String medal) {
+    public PanelMedalsByCompetence(Presenter presenter, String medal, Command command) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
-        initComponents(presenter, medal);
+        initComponents(presenter, medal, command);
     }
 
-    private void initComponents(Presenter presenter, String medal){
+    private void initComponents(Presenter presenter, String medal, Command command){
         JPanel panel = new JPanel();
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -42,7 +42,7 @@ public class PanelMedalsByCompetence extends JPanel {
         button.setBorderPainted(false);
         button.setBackground(Color.decode("#C4DFE6"));
         button.addActionListener(presenter);
-        button.setActionCommand(Command.C_MEDALS_DELEGATIONS.toString());
+        button.setActionCommand(command.toString());
         button.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(button);
         this.add(panel);
@@ -56,5 +56,13 @@ public class PanelMedalsByCompetence extends JPanel {
         jScrollPane = new JScrollPane(jTable);
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
+    }
+
+    public void addRowToMedals(Object[] objects){
+        defaultTableModel.addRow(objects);
+    }
+
+    public void cleanTableMedals(){
+        defaultTableModel.setNumRows(0);
     }
 }

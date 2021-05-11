@@ -1,5 +1,6 @@
 package views.body;
 
+import presenter.Command;
 import presenter.Presenter;
 import views.ConstantsUI;
 
@@ -39,9 +40,9 @@ public class BodyPanel extends JPanel{
         panelFindCompetitor = new PanelFindCompetitor(presenter);
         panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
         //panelMedals = new PanelMedals();
-        panelMedalsByCompetenceGold = new PanelMedalsByCompetence(presenter, "Oro");
-        panelMedalsByCompetenceBronze = new PanelMedalsByCompetence(presenter, "Bronce");
-        panelMedalsByCompetenceSilver = new PanelMedalsByCompetence(presenter, "Plata");
+        panelMedalsByCompetenceGold = new PanelMedalsByCompetence(presenter, "Oro", Command.LIST_GOLDS);
+        panelMedalsByCompetenceBronze = new PanelMedalsByCompetence(presenter, "Bronce", Command.LIST_BRONZES);
+        panelMedalsByCompetenceSilver = new PanelMedalsByCompetence(presenter, "Plata", Command.LIST_SILVERS);
         panelScores = new PanelScores(presenter);
         panelScores = new PanelScores(presenter);
 
@@ -171,5 +172,45 @@ public class BodyPanel extends JPanel{
 
     public String getNameByDelegationSearch(){
         return panelCompetitorsByDelgation.getNameByDelegationSearch();
+    }
+
+    public void addRowGold(Object[] objects){
+        panelMedalsByCompetenceGold.addRowToMedals(objects);
+    }
+
+    public void addRowSilver(Object[] objects){
+        panelMedalsByCompetenceSilver.addRowToMedals(objects);
+    }
+
+    public void addRowBronze(Object[] objects){
+        panelMedalsByCompetenceBronze.addRowToMedals(objects);
+    }
+
+    public void cleanTableGold(){
+        panelMedalsByCompetenceGold.cleanTableMedals();
+    }
+
+    public void cleanTableSilver(){
+        panelMedalsByCompetenceSilver.cleanTableMedals();
+    }
+
+    public void cleanTableBronze(){
+        panelMedalsByCompetenceBronze.cleanTableMedals();
+    }
+
+    public String getCompetenceComboBoxScores(){
+        return panelScores.getCompetenceComboBox();
+    }
+
+    public String getGenderBoxScore(){
+        return panelScores.getGenderBox();
+    }
+
+    public void cleanPanelScores(){
+        panelScores.cleanPanelScores();
+    }
+
+    public void addRowScores(Object[]objects){
+       panelScores.addRowScores(objects);
     }
 }
