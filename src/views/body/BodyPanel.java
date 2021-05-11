@@ -148,4 +148,28 @@ public class BodyPanel extends JPanel{
     public void changeLanguage(){
 
     }
+
+    public void addRowToFindCOmpetitor(Object[] objects){
+        panelFindCompetitor.addRowToFindCompetitor(objects);
+    }
+
+    public String getNameFindCompetitor(){
+        return panelFindCompetitor.getNameCompetitor();
+    }
+
+    public void cleanTableFindCompetitor(){
+        panelFindCompetitor.cleanTableFindCompetitor();
+    }
+
+    public void addRowTableByDelegation(Object[] objects){
+        panelCompetitorsByDelgation.addRowTableByDelegation(objects);
+    }
+
+    public void cleanTableByDelegation(){
+        panelCompetitorsByDelgation.cleanTableByDelegation();
+    }
+
+    public String getNameByDelegationSearch(){
+        return panelCompetitorsByDelgation.getNameByDelegationSearch();
+    }
 }

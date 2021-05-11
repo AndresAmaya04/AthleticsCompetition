@@ -65,7 +65,15 @@ public class PanelCompetitorsByDelgation extends JPanel{
         this.add(jScrollPane);
     }
 
-    public String getNameDelegationSearch(){
+    public String getNameByDelegationSearch(){
         return String.valueOf(this.stringJComboBox.getSelectedItem());
+    }
+
+    public void addRowTableByDelegation(Object[] objects){
+        defaultTableModel.addRow(objects);
+    }
+
+    public void cleanTableByDelegation(){
+        defaultTableModel.setNumRows(0);
     }
 }

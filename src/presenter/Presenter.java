@@ -1,23 +1,23 @@
 package presenter;
 
-import model.Competence;
-import model.JsonUtilities;
+import model.*;
 import views.main.JfMainWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
 
     JfMainWindow jfMainWindow;
-    Competence competence;
     JsonUtilities jsonUtilities;
+    AthleticsCompetition athleticsCompetition;
 
     public Presenter() {
         jfMainWindow = new JfMainWindow(this);
         jsonUtilities = new JsonUtilities();
-
+        athleticsCompetition = new AthleticsCompetition();
     }
 
     public static void main(String[] args) {
@@ -63,8 +63,18 @@ public class Presenter implements ActionListener {
             case C_BAR_GRAPHIC:
                 break;
             case SEARCH_INFO_COMPETITOR:
+                jfMainWindow.cleanTableFindCompetitor();
+                ArrayList<Object[]> competitors = athleticsCompetition.findCompetitor(jfMainWindow.getNameFindCompetitor());
+                for (int i=0; i<competitors.size(); i++){
+                    jfMainWindow.addRowToFindCompetitor(competitors.get(i));
+                }
                 break;
             case SEARCH_DELEGATION_LIST:
+                jfMainWindow.cleanTableByDelegation();
+                ArrayList<Object[]> competitorsDelegation = athleticsCompetition.getListOfCompetitorsByDelegation(jfMainWindow.getNameByDelegationSearch());
+                for (Object[] competitor: competitorsDelegation){
+                    jfMainWindow.addRowTableByDelegation(competitor);
+                }
                 break;
             default:
                 break;
@@ -75,9 +85,8 @@ public class Presenter implements ActionListener {
         String auxPath = jfMainWindow.filechooser();
         String auxPathDoc2 = jfMainWindow.filechooser();
         jsonUtilities.setPathCompetences(auxPathDoc2);
-        jsonUtilities.readJson(auxPath);
-//            managerFiles = new ManagerFiles(auxPath);
-//            startFile(mngFile);
-
+        athleticsCompetition.fillDelegations(jsonUtilities.readJson(auxPath));
+        athleticsCompetition.setMedalByCompetenceMale();
+        athleticsCompetition.setMedalByCompetenceFemale();
     }
 }

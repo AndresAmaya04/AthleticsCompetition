@@ -80,4 +80,28 @@ public class JfMainWindow extends JFrame {
     public String filechooser(){
         return jpMainPanel.filechooser();
     }
+
+    public void addRowToFindCompetitor(Object[] objects){
+        jpMainPanel.addRowFindCompetitor(objects);
+    }
+
+    public String getNameFindCompetitor(){
+        return jpMainPanel.getNameFindCompetitor();
+    }
+
+    public void cleanTableFindCompetitor(){
+        jpMainPanel.cleanTableFindCompetitor();
+    }
+
+    public void addRowTableByDelegation(Object[] objects){
+        jpMainPanel.addRowTableByDelegation(objects);
+    }
+
+    public void cleanTableByDelegation(){
+        jpMainPanel.cleanTableByDelegation();
+    }
+
+    public String getNameByDelegationSearch(){
+        return jpMainPanel.getNameByDelegationSearch();
+    }
 }

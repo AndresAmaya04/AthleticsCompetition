@@ -67,4 +67,12 @@ public class PanelFindCompetitor extends JPanel {
     public String getNameCompetitor(){
         return textField.getText();
     }
+
+    public void addRowToFindCompetitor(Object[] objects){
+        defaultTableModel.addRow(objects);
+    }
+
+    public void cleanTableFindCompetitor(){
+        defaultTableModel.setNumRows(0);
+    }
 }

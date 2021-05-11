@@ -88,4 +88,28 @@ public class JPMainPanel extends JPanel {
     public String filechooser(){
         return headerPanel.filechooser();
     }
+
+    public void addRowFindCompetitor(Object[] objects){
+        jBodyPanel.addRowToFindCOmpetitor(objects);
+    }
+
+    public String getNameFindCompetitor(){
+        return jBodyPanel.getNameFindCompetitor();
+    }
+
+    public void cleanTableFindCompetitor(){
+        jBodyPanel.cleanTableFindCompetitor();
+    }
+
+    public void addRowTableByDelegation(Object[] objects){
+        jBodyPanel.addRowTableByDelegation(objects);
+    }
+
+    public void cleanTableByDelegation(){
+        jBodyPanel.cleanTableByDelegation();
+    }
+
+    public String getNameByDelegationSearch(){
+        return jBodyPanel.getNameByDelegationSearch();
+    }
 }

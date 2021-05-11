@@ -48,15 +48,6 @@ public class RigthPanel extends JPanel {
         jButton1.setActionCommand(Command.C_INFO_RUNNER.toString());
         jButton1.addActionListener(presenter);
 
-        JButton jButton2 = new JButton("Medallas por delegacion");
-        jButton2.setBorderPainted(false);
-        jButton2.setBackground(Color.decode("#276E90"));
-        jButton2.setFont( new Font("Serif", Font.PLAIN, 25));
-        jButton2.setForeground(Color.LIGHT_GRAY);
-        jButton2.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
-        jButton2.setActionCommand(Command.C_MEDALS_DELEGATIONS.toString());
-        jButton2.addActionListener(presenter);
-
         JButton jButton3 = new JButton("Premio Golden Boy");
         jButton3.setBorderPainted(false);
         jButton3.setBackground(Color.decode("#276E90"));
@@ -129,7 +120,6 @@ public class RigthPanel extends JPanel {
 
         this.add(jLabelgif);
         this.add(jButton1);
-        this.add(jButton2);
         this.add(jButton3);
         this.add(jButton4);
         this.add(jButton5);
