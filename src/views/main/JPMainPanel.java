@@ -192,6 +192,10 @@ public class JPMainPanel extends JPanel {
         jBodyPanel.addRowGoldenBoy(objects);
     }
 
+    public void cleanExperienceTable(){
+        jBodyPanel.cleanExperienceTable();
+    }
+
     public void changeLanguage(){
         jBodyPanel.changeLanguage();
     }

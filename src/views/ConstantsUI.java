@@ -8,5 +8,6 @@ public class ConstantsUI {
     public static final String PATH_ADD_RUNNER = "/img/addRunner.png";
     public static final String PATH_TO_SPANISH = "/img/spanish.png";
     public static final String PATH_TO_ENGLISH = "/img/english.png";
+    public static final String PATH_COMPETITOR = "/img/atleta.jpg";
 
 }

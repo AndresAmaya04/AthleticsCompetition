@@ -16,16 +16,14 @@ public class Presenter implements ActionListener {
     JfMainWindow jfMainWindow;
     JsonUtilities jsonUtilities;
     AthleticsCompetition athleticsCompetition;
-<<<<<<< HEAD
     JPanelGraphics panelGraphics;
-=======
     HandlerLanguage handlerLanguage;
->>>>>>> 7472ff1dec1bd407234a1c17af5fb083f0a48546
 
     public Presenter() {
         athleticsCompetition = new AthleticsCompetition();
         jfMainWindow = new JfMainWindow(this);
         jsonUtilities = new JsonUtilities();
+        loadConfiguration();
     }
 
     public static void main(String[] args) {
@@ -41,9 +39,10 @@ public class Presenter implements ActionListener {
             case C_ADD_RUNNER:
                 break;
             case C_CHANGE_SPANISH:
+                manageChangeLanguageES();
                 break;
             case C_CHANGE_ENGLISH:
-                jfMainWindow.changeLanguage();
+                manageChangeLanguageUS();
                 break;
             case C_INFO_RUNNER:
                 jfMainWindow.changePanelFindCompetitor();
@@ -52,6 +51,7 @@ public class Presenter implements ActionListener {
                 jfMainWindow.changePanelMedalsDelegation();
                 break;
             case C_SCHEDULE_PER_COMPETENCE:
+                jfMainWindow.cleanExperienceTable();
                 jfMainWindow.changePanelExperience();
                 Competitor[] competitorsPrice = athleticsCompetition.getGoldenGayAndExperiencePrice();
                 jfMainWindow.addRowExperience(competitorsPrice[1].getCompetitorInfoForMedals());
@@ -60,6 +60,10 @@ public class Presenter implements ActionListener {
                 jfMainWindow.changePanelCompetitorsDelegation();
                 break;
             case C_SCHEDULE:
+                jfMainWindow.cleanExperienceTable();
+                jfMainWindow.changePanelExperience();
+                Competitor[] competitorsPriceGolden = athleticsCompetition.getGoldenGayAndExperiencePrice();
+                jfMainWindow.addRowExperience(competitorsPriceGolden[0].getCompetitorInfoForMedals());
                 break;
             case C_GENERAL_RESULTS:
                 jfMainWindow.changePanelScore();
@@ -124,6 +128,7 @@ public class Presenter implements ActionListener {
                 for (int i = 0; i < athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).size(); i++) {
                     jfMainWindow.addRowTableDelegation(athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).get(i));
                 }
+                break;
             case C_GRAPHICS:
                 panelGraphics = new JPanelGraphics(athleticsCompetition.sumMedals(), athleticsCompetition.getDelegations(), ModelConstants.delegationsNames);
                 jfMainWindow.changePanelGraphics(panelGraphics);
@@ -133,6 +138,17 @@ public class Presenter implements ActionListener {
         }
     }
 
+    public void loadConfiguration(){
+        if(handlerLanguage == null){
+            handlerLanguage = new HandlerLanguage("resources/config/config.init");
+        }
+        try{
+            handlerLanguage.loadLanguage();
+        }catch(IOException e){
+//			JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
     private void manageChangeLanguage(){
         jfMainWindow.changeLanguage();
     }
@@ -146,8 +162,23 @@ public class Presenter implements ActionListener {
         manageChangeLanguage();
     }
 
+    public void changeToEnglish() throws IOException {
+        HandlerLanguage.language = "resources/Lenguage/languageUS.properties";
+        saveConfig();
+        loadLanguage();
+    }
+
+    private void manageChangeLanguageUS(){
+        try {
+            changeToEnglish();
+        } catch (IOException e1) {
+            JOptionPane.showMessageDialog(jfMainWindow, e1.getMessage());
+        }
+        manageChangeLanguage();
+    }
+
     public void changeToSpanish() throws IOException{
-        HandlerLanguage.language = "resources/languages/languageES.properties";
+        HandlerLanguage.language = "resources/Lenguage/languageES.properties";
         saveConfig();
         loadLanguage();
     }

@@ -29,7 +29,6 @@ public class HandlerLanguage {
     public void loadLanguage() throws IOException{
         Properties handlerproperties = Utilities.generateProperties(fileName);
         language = handlerproperties.getProperty("Language");
-
         languageProperties = Utilities.generateProperties(language);
     }
 

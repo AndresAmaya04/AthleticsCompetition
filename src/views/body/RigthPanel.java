@@ -61,16 +61,16 @@ public class RigthPanel extends JPanel {
         jButton1.setActionCommand(Command.C_INFO_RUNNER.toString());
         jButton1.addActionListener(presenter);
 
-        JButton jButton3 = new JButton("Premio Golden Boy");
+        jButton3 = new JButton("Premio Golden Boy");
         jButton3.setBorderPainted(false);
         jButton3.setBackground(Color.decode("#276E90"));
         jButton3.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton3.setForeground(Color.LIGHT_GRAY);
         jButton3.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
-        jButton3.setActionCommand(Command.GOLDEN_BOY.toString());
+        jButton3.setActionCommand(Command.C_SCHEDULE.toString());
         jButton3.addActionListener(presenter);
 
-        JButton jButton4 = new JButton("Lista de competidores por delegacion");
+        jButton4 = new JButton("Lista de competidores por delegacion");
         jButton4.setBorderPainted(false);
         jButton4.setBackground(Color.decode("#276E90"));
         jButton4.setFont( new Font("Serif", Font.PLAIN, 22));
@@ -79,7 +79,7 @@ public class RigthPanel extends JPanel {
         jButton4.setActionCommand(Command.C_LIST_COMPETITOR.toString());
         jButton4.addActionListener(presenter);
 
-        JButton jButton5 = new JButton("Premio a la experiencia");
+        jButton5 = new JButton("Premio a la experiencia");
         jButton5.setBorderPainted(false);
         jButton5.setBackground(Color.decode("#276E90"));
         jButton5.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -88,7 +88,7 @@ public class RigthPanel extends JPanel {
         jButton5.addActionListener(presenter);
         jButton5.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
 
-        JButton jButton6 = new JButton("Resultados generales");
+        jButton6 = new JButton("Resultados generales");
         jButton6.setBorderPainted(false);
         jButton6.setBackground(Color.decode("#276E90"));
         jButton6.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -97,7 +97,7 @@ public class RigthPanel extends JPanel {
         jButton6.setActionCommand(Command.C_GENERAL_RESULTS.toString());
         jButton6.addActionListener(presenter);
 
-        JButton jButton2 = new JButton("Medallas por delegaciones");
+        jButton2 = new JButton("Medallas por delegaciones");
         jButton2.setBorderPainted(false);
         jButton2.setBackground(Color.decode("#276E90"));
         jButton2.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -106,7 +106,7 @@ public class RigthPanel extends JPanel {
         jButton2.setActionCommand(Command.C_MEDALS_DELEGATIONS.toString());
         jButton2.addActionListener(presenter);
 
-        JButton jButton7 = new JButton("Oro por competencia");
+        jButton7 = new JButton("Oro por competencia");
         jButton7.setBorderPainted(false);
         jButton7.setBackground(Color.decode("#276E90"));
         jButton7.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -115,7 +115,7 @@ public class RigthPanel extends JPanel {
         jButton7.addActionListener(presenter);
         jButton7.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
 
-        JButton jButton8 = new JButton("Plata por competencias");
+        jButton8 = new JButton("Plata por competencias");
         jButton8.setBorderPainted(false);
         jButton8.setBackground(Color.decode("#276E90"));
         jButton8.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -124,7 +124,7 @@ public class RigthPanel extends JPanel {
         jButton8.addActionListener(presenter);
         jButton8.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
 
-        JButton jButton9 = new JButton("Bronce por competencia");
+        jButton9 = new JButton("Bronce por competencia");
         jButton9.setBorderPainted(false);
         jButton9.setBackground(Color.decode("#276E90"));
         jButton9.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -133,7 +133,7 @@ public class RigthPanel extends JPanel {
         jButton9.addActionListener(presenter);
         jButton9.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
 
-        JButton jButton10 = new JButton("Grafico de barras");
+        jButton10 = new JButton("Grafico de barras");
         jButton10.setBorderPainted(false);
         jButton10.setBackground(Color.decode("#276E90"));
         jButton10.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -158,11 +158,11 @@ public class RigthPanel extends JPanel {
 
     public void changeLanguage(){
         jButton1.setText(HandlerLanguage.languageProperties.getProperty("Button_info_competitor"));
-        jButton2.setText(HandlerLanguage.languageProperties.getProperty("Button_goldenBoy"));
-        jButton3.setText(HandlerLanguage.languageProperties.getProperty("Button_competitors_delegation"));
-        jButton4.setText(HandlerLanguage.languageProperties.getProperty("Button_Price_experience"));
-        jButton5.setText(HandlerLanguage.languageProperties.getProperty("Button_general_result"));
-        jButton6.setText(HandlerLanguage.languageProperties.getProperty("Button_medals_delegation"));
+        jButton3.setText(HandlerLanguage.languageProperties.getProperty("Button_goldenBoy"));
+        jButton2.setText(HandlerLanguage.languageProperties.getProperty("Button_medals_delegation"));
+        jButton4.setText(HandlerLanguage.languageProperties.getProperty("Button_competitors_delegation"));
+        jButton5.setText(HandlerLanguage.languageProperties.getProperty("Button_Price_experience"));
+        jButton6.setText(HandlerLanguage.languageProperties.getProperty("Button_general_result"));
         jButton7.setText(HandlerLanguage.languageProperties.getProperty("Button_golds"));
         jButton8.setText(HandlerLanguage.languageProperties.getProperty("Button_silvers"));
         jButton9.setText(HandlerLanguage.languageProperties.getProperty("Button_broncez"));

@@ -56,4 +56,8 @@ public class PanelPrice extends JPanel {
     public void addRowToMedals(Object[] objects){
         defaultTableModel.addRow(objects);
     }
+
+    public void setnumRows(){
+        defaultTableModel.setNumRows(0);
+    }
 }

@@ -80,6 +80,8 @@ public class HeaderPanel extends JPanel {
 //        jlabel.setPreferredSize(new Dimension(1000,100));
         toSpanish.setBorderPainted(false);
         toSpanish.setBackground(Color.decode("#276E90"));
+        toSpanish.setActionCommand(Command.C_CHANGE_SPANISH.toString());
+        toSpanish.addActionListener(presenter);
 
         JButton toEnglish = new JButton();
         toEnglish.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_TO_ENGLISH)).getImage().getScaledInstance((int) fWButtonS,(int) fHButtonS,Image.SCALE_SMOOTH)));
@@ -87,6 +89,8 @@ public class HeaderPanel extends JPanel {
 //        jlabel.setPreferredSize(new Dimension(1000,100));
         toEnglish.setBorderPainted(false);
         toEnglish.setBackground(Color.decode("#276E90"));
+        toEnglish.setActionCommand(Command.C_CHANGE_ENGLISH.toString());
+        toEnglish.addActionListener(presenter);
 
         this.add(jlabel,BorderLayout.WEST);
         this.add(jlabelTitle,BorderLayout.CENTER);
