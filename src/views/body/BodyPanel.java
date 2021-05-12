@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class BodyPanel extends JPanel{
 
     LeftPanel leftPanel;
+    RigthPanel rigthPanel;
     private PanelFindCompetitor panelFindCompetitor;
     private PanelCompetitorsByDelgation panelCompetitorsByDelgation;
     private PanelMedalsByCompetence panelMedalsByCompetenceGold;
@@ -39,7 +40,7 @@ public class BodyPanel extends JPanel{
 
     public void initicomponents(Presenter presenter){
          leftPanel = new LeftPanel();
-        RigthPanel rigthPanel = new RigthPanel(presenter);
+        rigthPanel = new RigthPanel(presenter);
         panelFindCompetitor = new PanelFindCompetitor(presenter);
         panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
         //panelMedals = new PanelMedals();
@@ -217,6 +218,7 @@ public class BodyPanel extends JPanel{
         this.add(panelMedalsDelegation, BorderLayout.WEST);
     }
 
+<<<<<<< HEAD
     public void changePanelGraphics(JPanel jPanelGraphics){
         leftPanel.setVisible(false);
         panelCompetitorsByDelgation.setVisible(false);
@@ -229,10 +231,6 @@ public class BodyPanel extends JPanel{
         panelMedalsDelegation.setVisible(false);
         jPanelGraphics.setVisible(true);
         this.add(jPanelGraphics, BorderLayout.WEST);
-    }
-
-    public void changeLanguage(){
-
     }
 
     public void addRowToFindCOmpetitor(Object[] objects){
@@ -317,5 +315,9 @@ public class BodyPanel extends JPanel{
 
     public void addRowGoldenBoy(Object[] objects){
         panelPriceGoldenBoy.addRowToMedals(objects);
+    }
+
+    public void changeLanguage(){
+        rigthPanel.changeLanguage();
     }
 }

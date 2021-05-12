@@ -1,11 +1,14 @@
 package presenter;
 
+import Persistence.HandlerLanguage;
 import model.*;
 import views.JPanelGraphics;
 import views.main.JfMainWindow;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
@@ -13,7 +16,11 @@ public class Presenter implements ActionListener {
     JfMainWindow jfMainWindow;
     JsonUtilities jsonUtilities;
     AthleticsCompetition athleticsCompetition;
+<<<<<<< HEAD
     JPanelGraphics panelGraphics;
+=======
+    HandlerLanguage handlerLanguage;
+>>>>>>> 7472ff1dec1bd407234a1c17af5fb083f0a48546
 
     public Presenter() {
         athleticsCompetition = new AthleticsCompetition();
@@ -36,6 +43,7 @@ public class Presenter implements ActionListener {
             case C_CHANGE_SPANISH:
                 break;
             case C_CHANGE_ENGLISH:
+                jfMainWindow.changeLanguage();
                 break;
             case C_INFO_RUNNER:
                 jfMainWindow.changePanelFindCompetitor();
@@ -122,6 +130,41 @@ public class Presenter implements ActionListener {
                 break;
             default:
                 break;
+        }
+    }
+
+    private void manageChangeLanguage(){
+        jfMainWindow.changeLanguage();
+    }
+
+    private void manageChangeLanguageES(){
+        try {
+            changeToSpanish();
+        } catch (IOException e1) {
+            JOptionPane.showMessageDialog(jfMainWindow, e1.getMessage());
+        }
+        manageChangeLanguage();
+    }
+
+    public void changeToSpanish() throws IOException{
+        HandlerLanguage.language = "resources/languages/languageES.properties";
+        saveConfig();
+        loadLanguage();
+    }
+
+    public void saveConfig(){
+        try {
+            new HandlerLanguage("resources/config/config.init").saveLanguage();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
+        }
+    }
+
+    public void loadLanguage(){
+        try {
+            handlerLanguage.loadLanguage();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
         }
     }
 

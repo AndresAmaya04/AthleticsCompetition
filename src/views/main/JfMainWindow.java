@@ -183,4 +183,8 @@ public class JfMainWindow extends JFrame {
     public void changePanelExperience(){
         jpMainPanel.changePanelExperience();
     }
+
+    public void changeLanguage(){
+        jpMainPanel.changeLanguage();
+    }
 }
