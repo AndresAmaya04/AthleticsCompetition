@@ -25,6 +25,10 @@ public class PanelCompetitorsByDelgation extends JPanel{
     private JTable jTable;
     private JScrollPane jScrollPane;
 
+    /**
+     * Metodo constructor
+     * @param presenter
+     */
     public PanelCompetitorsByDelgation(Presenter presenter) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
