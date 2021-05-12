@@ -1,10 +1,13 @@
 package presenter;
 
+import Persistence.HandlerLanguage;
 import model.*;
 import views.main.JfMainWindow;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
@@ -12,6 +15,7 @@ public class Presenter implements ActionListener {
     JfMainWindow jfMainWindow;
     JsonUtilities jsonUtilities;
     AthleticsCompetition athleticsCompetition;
+    HandlerLanguage handlerLanguage;
 
     public Presenter() {
         jfMainWindow = new JfMainWindow(this);
@@ -34,6 +38,7 @@ public class Presenter implements ActionListener {
             case C_CHANGE_SPANISH:
                 break;
             case C_CHANGE_ENGLISH:
+                jfMainWindow.changeLanguage();
                 break;
             case C_INFO_RUNNER:
                 jfMainWindow.changePanelFindCompetitor();
@@ -117,6 +122,41 @@ public class Presenter implements ActionListener {
 
             default:
                 break;
+        }
+    }
+
+    private void manageChangeLanguage(){
+        jfMainWindow.changeLanguage();
+    }
+
+    private void manageChangeLanguageES(){
+        try {
+            changeToSpanish();
+        } catch (IOException e1) {
+            JOptionPane.showMessageDialog(jfMainWindow, e1.getMessage());
+        }
+        manageChangeLanguage();
+    }
+
+    public void changeToSpanish() throws IOException{
+        HandlerLanguage.language = "resources/languages/languageES.properties";
+        saveConfig();
+        loadLanguage();
+    }
+
+    public void saveConfig(){
+        try {
+            new HandlerLanguage("resources/config/config.init").saveLanguage();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
+        }
+    }
+
+    public void loadLanguage(){
+        try {
+            handlerLanguage.loadLanguage();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
         }
     }
 

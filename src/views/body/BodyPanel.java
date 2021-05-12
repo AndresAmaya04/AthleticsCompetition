@@ -10,6 +10,7 @@ import java.awt.*;
 public class BodyPanel extends JPanel{
 
     LeftPanel leftPanel;
+    RigthPanel rigthPanel;
     private PanelFindCompetitor panelFindCompetitor;
     private PanelCompetitorsByDelgation panelCompetitorsByDelgation;
     private PanelMedalsByCompetence panelMedalsByCompetenceGold;
@@ -37,7 +38,7 @@ public class BodyPanel extends JPanel{
 
     public void initicomponents(Presenter presenter){
          leftPanel = new LeftPanel();
-        RigthPanel rigthPanel = new RigthPanel(presenter);
+        rigthPanel = new RigthPanel(presenter);
         panelFindCompetitor = new PanelFindCompetitor(presenter);
         panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
         //panelMedals = new PanelMedals();
@@ -214,10 +215,6 @@ public class BodyPanel extends JPanel{
         this.add(panelMedalsDelegation, BorderLayout.WEST);
     }
 
-    public void changeLanguage(){
-
-    }
-
     public void addRowToFindCOmpetitor(Object[] objects){
         panelFindCompetitor.addRowToFindCompetitor(objects);
     }
@@ -300,5 +297,9 @@ public class BodyPanel extends JPanel{
 
     public void addRowGoldenBoy(Object[] objects){
         panelPriceGoldenBoy.addRowToMedals(objects);
+    }
+
+    public void changeLanguage(){
+        rigthPanel.changeLanguage();
     }
 }

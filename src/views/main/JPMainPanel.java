@@ -185,4 +185,8 @@ public class JPMainPanel extends JPanel {
     public void addRowGoldenBoy(Object[] objects){
         jBodyPanel.addRowGoldenBoy(objects);
     }
+
+    public void changeLanguage(){
+        jBodyPanel.changeLanguage();
+    }
 }

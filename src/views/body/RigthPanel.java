@@ -1,5 +1,6 @@
 package views.body;
 
+import Persistence.HandlerLanguage;
 import presenter.Command;
 import presenter.Presenter;
 import views.ConstantsUI;
@@ -19,6 +20,18 @@ public class RigthPanel extends JPanel {
 
     float fwGif = (float) (widthS*0.30);
     float fhGif = (float) (heightS*0.28);
+
+    JButton jButton1;
+    JButton jButton2;
+    JButton jButton3;
+    JButton jButton4;
+    JButton jButton5;
+    JButton jButton6;
+    JButton jButton7;
+    JButton jButton8;
+    JButton jButton9;
+    JButton jButton10;
+
     /**
      * Metodo constructor
      */
@@ -39,7 +52,7 @@ public class RigthPanel extends JPanel {
         JLabel jLabelgif = new JLabel();
         jLabelgif.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_GIF)).getImage().getScaledInstance((int) fwGif,(int) fhGif, Image.SCALE_FAST)));
 
-        JButton jButton1 = new JButton("Buscar Informacion de corredor");
+        jButton1 = new JButton("Buscar Informacion de corredor");
         jButton1.setBorderPainted(false);
         jButton1.setBackground(Color.decode("#276E90"));
         jButton1.setFont( new Font("Serif", Font.PLAIN, 25));
@@ -139,5 +152,18 @@ public class RigthPanel extends JPanel {
         this.add(jButton9);
         this.add(jButton10);
 
+    }
+
+    public void changeLanguage(){
+        jButton1.setText(HandlerLanguage.languageProperties.getProperty("Button_info_competitor"));
+        jButton2.setText(HandlerLanguage.languageProperties.getProperty("Button_goldenBoy"));
+        jButton3.setText(HandlerLanguage.languageProperties.getProperty("Button_competitors_delegation"));
+        jButton4.setText(HandlerLanguage.languageProperties.getProperty("Button_Price_experience"));
+        jButton5.setText(HandlerLanguage.languageProperties.getProperty("Button_general_result"));
+        jButton6.setText(HandlerLanguage.languageProperties.getProperty("Button_medals_delegation"));
+        jButton7.setText(HandlerLanguage.languageProperties.getProperty("Button_golds"));
+        jButton8.setText(HandlerLanguage.languageProperties.getProperty("Button_silvers"));
+        jButton9.setText(HandlerLanguage.languageProperties.getProperty("Button_broncez"));
+        jButton10.setText(HandlerLanguage.languageProperties.getProperty("Button_graphics"));
     }
 }
