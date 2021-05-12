@@ -152,4 +152,20 @@ public class JPMainPanel extends JPanel {
     public void addRowScores(Object[]objects){
         jBodyPanel.addRowScores(objects);
     }
+
+    public void changePanelGolden(){
+        jBodyPanel.changePanelGolden();
+    }
+
+    public void changePanelExperience(){
+        jBodyPanel.changePanelExperience();
+    }
+
+    public void addRowExperience(Object[] objects){
+        jBodyPanel.addRowExperience(objects);
+    }
+
+    public void addRowGoldenBoy(Object[] objects){
+        jBodyPanel.addRowGoldenBoy(objects);
+    }
 }

@@ -16,6 +16,8 @@ public class BodyPanel extends JPanel{
     private PanelMedalsByCompetence panelMedalsByCompetenceGold;
     private PanelMedalsByCompetence panelMedalsByCompetenceBronze;
     private PanelMedalsByCompetence panelMedalsByCompetenceSilver;
+    private PanelPrice panelPriceExperience;
+    private PanelPrice panelPriceGoldenBoy;
     private PanelScores panelScores;
 
 
@@ -40,9 +42,11 @@ public class BodyPanel extends JPanel{
         panelFindCompetitor = new PanelFindCompetitor(presenter);
         panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
         //panelMedals = new PanelMedals();
-        panelMedalsByCompetenceGold = new PanelMedalsByCompetence(presenter, "Oro", Command.LIST_GOLDS);
-        panelMedalsByCompetenceBronze = new PanelMedalsByCompetence(presenter, "Bronce", Command.LIST_BRONZES);
-        panelMedalsByCompetenceSilver = new PanelMedalsByCompetence(presenter, "Plata", Command.LIST_SILVERS);
+        panelMedalsByCompetenceGold = new PanelMedalsByCompetence(presenter, "Oro");
+        panelMedalsByCompetenceBronze = new PanelMedalsByCompetence(presenter, "Bronce");
+        panelMedalsByCompetenceSilver = new PanelMedalsByCompetence(presenter, "Plata");
+        panelPriceExperience = new PanelPrice(presenter, " premio a la experiencia");
+        panelPriceGoldenBoy = new PanelPrice(presenter, " premio a persona mas joven en ganar un oro");
         panelScores = new PanelScores(presenter);
         panelScores = new PanelScores(presenter);
 
@@ -70,6 +74,8 @@ public class BodyPanel extends JPanel{
         panelMedalsByCompetenceBronze.setVisible(false);
         panelMedalsByCompetenceSilver.setVisible(false);
         panelScores.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         medals.setVisible(true);
         this.add(medals,BorderLayout.WEST);
     }
@@ -82,6 +88,8 @@ public class BodyPanel extends JPanel{
         panelMedalsByCompetenceSilver.setVisible(false);
         panelScores.setVisible(false);
         medals.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelFindCompetitor.setVisible(true);
         this.add(panelFindCompetitor, BorderLayout.WEST);
     }
@@ -94,6 +102,8 @@ public class BodyPanel extends JPanel{
         panelScores.setVisible(false);
         medals.setVisible(false);
         panelFindCompetitor.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelCompetitorsByDelgation.setVisible(true);
         this.add(panelCompetitorsByDelgation, BorderLayout.WEST);
     }
@@ -106,6 +116,8 @@ public class BodyPanel extends JPanel{
         medals.setVisible(false);
         panelMedalsByCompetenceBronze.setVisible(false);
         panelMedalsByCompetenceSilver.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelMedalsByCompetenceGold.setVisible(true);
         this.add(panelMedalsByCompetenceGold, BorderLayout.WEST);
     }
@@ -118,6 +130,8 @@ public class BodyPanel extends JPanel{
         medals.setVisible(false);
         panelMedalsByCompetenceBronze.setVisible(false);
         panelMedalsByCompetenceGold.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelMedalsByCompetenceSilver.setVisible(true);
         this.add(panelMedalsByCompetenceSilver, BorderLayout.WEST);
     }
@@ -130,6 +144,8 @@ public class BodyPanel extends JPanel{
         medals.setVisible(false);
         panelMedalsByCompetenceSilver.setVisible(false);
         panelMedalsByCompetenceGold.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelMedalsByCompetenceBronze.setVisible(true);
         this.add(panelMedalsByCompetenceBronze, BorderLayout.WEST);
     }
@@ -142,8 +158,38 @@ public class BodyPanel extends JPanel{
         panelMedalsByCompetenceBronze.setVisible(false);
         panelMedalsByCompetenceSilver.setVisible(false);
         medals.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(false);
         panelScores.setVisible(true);
         this.add(panelScores, BorderLayout.WEST);
+    }
+
+    public void changePanelGolden(){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelMedalsByCompetenceGold.setVisible(false);
+        panelMedalsByCompetenceBronze.setVisible(false);
+        panelMedalsByCompetenceSilver.setVisible(false);
+        medals.setVisible(false);
+        panelPriceExperience.setVisible(false);
+        panelScores.setVisible(false);
+        panelPriceGoldenBoy.setVisible(true);
+        this.add(panelPriceGoldenBoy, BorderLayout.WEST);
+    }
+
+    public void changePanelExperience(){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelMedalsByCompetenceGold.setVisible(false);
+        panelMedalsByCompetenceBronze.setVisible(false);
+        panelMedalsByCompetenceSilver.setVisible(false);
+        medals.setVisible(false);
+        panelScores.setVisible(false);
+        panelPriceGoldenBoy.setVisible(false);
+        panelPriceExperience.setVisible(true);
+        this.add(panelPriceExperience, BorderLayout.WEST);
     }
 
     public void changeLanguage(){
@@ -212,5 +258,13 @@ public class BodyPanel extends JPanel{
 
     public void addRowScores(Object[]objects){
        panelScores.addRowScores(objects);
+    }
+
+    public void addRowExperience(Object[] objects){
+        panelPriceExperience.addRowToMedals(objects);
+    }
+
+    public void addRowGoldenBoy(Object[] objects){
+        panelPriceGoldenBoy.addRowToMedals(objects);
     }
 }

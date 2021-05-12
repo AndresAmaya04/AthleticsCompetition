@@ -1,15 +1,12 @@
 package views.body;
 
-import model.Medal;
-import model.ModelConstants;
-import presenter.Command;
 import presenter.Presenter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class PanelMedalsByCompetence extends JPanel {
+public class PanelPrice extends JPanel {
 
     int widthS = Toolkit.getDefaultToolkit().getScreenSize().width;
     int heightS = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -24,17 +21,17 @@ public class PanelMedalsByCompetence extends JPanel {
     private JTable jTable;
     private JScrollPane jScrollPane;
 
-    public PanelMedalsByCompetence(Presenter presenter, String medal) {
+    public PanelPrice(Presenter presenter, String price) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
-        initComponents(presenter, medal);
+        initComponents(presenter, price);
     }
 
-    private void initComponents(Presenter presenter, String medal){
+    private void initComponents(Presenter presenter, String price){
         JPanel panel = new JPanel();
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        label = new JLabel("Medallas de "+ medal+ " cada competencia");
+        label = new JLabel("Ganador del " + price);
         label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(label);
         this.add(panel);
@@ -52,9 +49,5 @@ public class PanelMedalsByCompetence extends JPanel {
 
     public void addRowToMedals(Object[] objects){
         defaultTableModel.addRow(objects);
-    }
-
-    public void cleanTableMedals(){
-        defaultTableModel.setNumRows(0);
     }
 }

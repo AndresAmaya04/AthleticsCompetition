@@ -54,7 +54,7 @@ public class RigthPanel extends JPanel {
         jButton3.setFont( new Font("Serif", Font.PLAIN, 25));
         jButton3.setForeground(Color.LIGHT_GRAY);
         jButton3.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
-        jButton3.setActionCommand(Command.C_SCHEDULE_PER_COMPETENCE.toString());
+        jButton3.setActionCommand(Command.GOLDEN_BOY.toString());
         jButton3.addActionListener(presenter);
 
         JButton jButton4 = new JButton("Lista de competidores por delegacion");

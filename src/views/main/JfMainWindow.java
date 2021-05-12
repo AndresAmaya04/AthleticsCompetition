@@ -144,4 +144,20 @@ public class JfMainWindow extends JFrame {
     public void addRowScores(Object[]objects){
         jpMainPanel.addRowScores(objects);
     }
+
+    public void addRowExperience(Object[] objects){
+        jpMainPanel.addRowExperience(objects);
+    }
+
+    public void addRowGoldenBoy(Object[] objects){
+        jpMainPanel.addRowGoldenBoy(objects);
+    }
+
+    public void changePanelGolden(){
+        jpMainPanel.changePanelGolden();
+    }
+
+    public void changePanelExperience(){
+        jpMainPanel.changePanelExperience();
+    }
 }

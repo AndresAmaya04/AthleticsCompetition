@@ -181,7 +181,7 @@ public class AthleticsCompetition {
         for (int i=0; i<delegations.size(); i++){
             ArrayList<Competitor> temp = delegations.get(i).getCompetitors();
             for (int j=0; j<temp.size(); j++){
-                if (temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
+                if (temp.get(j).getMedal() != null && temp.get(j).getMedal().getNameMedal().equals(ModelConstants.GOLD)){
                     competitors.add(temp.get(j));
                 }
             }

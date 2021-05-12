@@ -42,6 +42,9 @@ public class Presenter implements ActionListener {
             case C_MEDALS_DELEGATIONS:
                 break;
             case C_SCHEDULE_PER_COMPETENCE:
+                jfMainWindow.changePanelExperience();
+                Competitor[] competitorsPrice = athleticsCompetition.getGoldenGayAndExperiencePrice();
+                jfMainWindow.addRowExperience(competitorsPrice[1].getCompetitorInfoForMedals());
                 break;
             case C_LIST_COMPETITOR:
                 jfMainWindow.changePanelCompetitorsDelegation();
@@ -53,12 +56,27 @@ public class Presenter implements ActionListener {
                 break;
             case C_GOLDS:
                 jfMainWindow.changePanelMedalsCompetenceGold();
+                jfMainWindow.cleanTableGold();
+                ArrayList<Competitor> competitorsGold = athleticsCompetition.extractGoldWinners();
+                for (Competitor competitor: competitorsGold){
+                    jfMainWindow.addRowGold(competitor.getCompetitorInfoForMedals());
+                }
                 break;
             case C_SILVERS:
                 jfMainWindow.changePanelMedalsCompetenceSilver();
+                jfMainWindow.cleanTableSilver();
+                ArrayList<Competitor> competitorsSilver = athleticsCompetition.extractSilverWinners();
+                for (Competitor competitor: competitorsSilver){
+                    jfMainWindow.addRowSilver(competitor.getCompetitorInfoForMedals());
+                }
                 break;
             case C_BRONZE:
                 jfMainWindow.changePanelMedalsCompetenceBronze();
+                jfMainWindow.cleanTableBronze();
+                ArrayList<Competitor> competitorsBronze = athleticsCompetition.extractBronzeWinners();
+                for (Competitor competitor: competitorsBronze){
+                    jfMainWindow.addRowBronze(competitor.getCompetitorInfoForMedals());
+                }
                 break;
             case C_BAR_GRAPHIC:
                 break;
@@ -76,27 +94,6 @@ public class Presenter implements ActionListener {
                     jfMainWindow.addRowTableByDelegation(competitor);
                 }
                 break;
-            case LIST_GOLDS:
-                jfMainWindow.cleanTableGold();
-                ArrayList<Competitor> competitorsGold = athleticsCompetition.extractGoldWinners();
-                for (Competitor competitor: competitorsGold){
-                    jfMainWindow.addRowGold(competitor.getCompetitorInfoForMedals());
-                }
-                break;
-            case LIST_SILVERS:
-                jfMainWindow.cleanTableSilver();
-                ArrayList<Competitor> competitorsSilver = athleticsCompetition.extractSilverWinners();
-                for (Competitor competitor: competitorsSilver){
-                    jfMainWindow.addRowSilver(competitor.getCompetitorInfoForMedals());
-                }
-                break;
-            case LIST_BRONZES:
-                jfMainWindow.cleanTableBronze();
-                ArrayList<Competitor> competitorsBronze = athleticsCompetition.extractBronzeWinners();
-                for (Competitor competitor: competitorsBronze){
-                    jfMainWindow.addRowBronze(competitor.getCompetitorInfoForMedals());
-                }
-                break;
             case SCORE_BUTTON:
                 jfMainWindow.cleanPanelScores();
                 ArrayList<Competitor> competitorsScore = athleticsCompetition.getOrderOfCompetition(jfMainWindow.getCompetenceComboBoxScores(), jfMainWindow.getGenderBoxScore());
@@ -105,6 +102,11 @@ public class Presenter implements ActionListener {
                     System.arraycopy(competitorsScore.get(i).getCompetitorInfoPanelScores(), 0, info, 1, competitorsScore.get(i).getCompetitorInfoPanelScores().length);
                     jfMainWindow.addRowScores(info);
                 }
+                break;
+            case GOLDEN_BOY:
+                jfMainWindow.changePanelGolden();
+                Competitor[] competitorsPrice1 = athleticsCompetition.getGoldenGayAndExperiencePrice();
+                jfMainWindow.addRowExperience(competitorsPrice1[0].getCompetitorInfoForMedals());
                 break;
             default:
                 break;

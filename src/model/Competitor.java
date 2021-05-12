@@ -110,7 +110,7 @@ public class Competitor {
 
     public Object[] getCompetitorInfoForMedals(){
         if (medal != null){
-            return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.medal};
+            return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.medal.getNameMedal()};
         }
         return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, "N/A"};
     }
