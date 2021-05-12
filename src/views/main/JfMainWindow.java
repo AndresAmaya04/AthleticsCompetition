@@ -2,10 +2,12 @@ package views.main;
 
 
 
+import model.Delegation;
 import presenter.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class JfMainWindow extends JFrame {
@@ -172,6 +174,10 @@ public class JfMainWindow extends JFrame {
 
     public void changePanelGolden(){
         jpMainPanel.changePanelGolden();
+    }
+
+    public void changePanelGraphics(JPanel jPanel){
+        jpMainPanel.changePanelGraphics(jPanel);
     }
 
     public void changePanelExperience(){

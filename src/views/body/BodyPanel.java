@@ -1,11 +1,13 @@
 package views.body;
 
+import model.Delegation;
 import presenter.Command;
 import presenter.Presenter;
 import views.ConstantsUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class BodyPanel extends JPanel{
 
@@ -41,6 +43,7 @@ public class BodyPanel extends JPanel{
         panelFindCompetitor = new PanelFindCompetitor(presenter);
         panelCompetitorsByDelgation = new PanelCompetitorsByDelgation(presenter);
         //panelMedals = new PanelMedals();
+        //int totalMedals, ArrayList<Delegation> delegations, String[] listCompetences
         panelMedalsByCompetenceGold = new PanelMedalsByCompetence(presenter, "Oro");
         panelMedalsByCompetenceBronze = new PanelMedalsByCompetence(presenter, "Bronce");
         panelMedalsByCompetenceSilver = new PanelMedalsByCompetence(presenter, "Plata");
@@ -212,6 +215,20 @@ public class BodyPanel extends JPanel{
         panelScores.setVisible(false);
         panelMedalsDelegation.setVisible(true);
         this.add(panelMedalsDelegation, BorderLayout.WEST);
+    }
+
+    public void changePanelGraphics(JPanel jPanelGraphics){
+        leftPanel.setVisible(false);
+        panelCompetitorsByDelgation.setVisible(false);
+        panelFindCompetitor.setVisible(false);
+        panelMedalsByCompetenceGold.setVisible(false);
+        panelMedalsByCompetenceBronze.setVisible(false);
+        panelMedalsByCompetenceSilver.setVisible(false);
+//        medals.setVisible(false);
+        panelScores.setVisible(false);
+        panelMedalsDelegation.setVisible(false);
+        jPanelGraphics.setVisible(true);
+        this.add(jPanelGraphics, BorderLayout.WEST);
     }
 
     public void changeLanguage(){

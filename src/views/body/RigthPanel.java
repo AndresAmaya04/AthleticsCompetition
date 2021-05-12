@@ -124,6 +124,8 @@ public class RigthPanel extends JPanel {
         jButton10.setBorderPainted(false);
         jButton10.setBackground(Color.decode("#276E90"));
         jButton10.setFont( new Font("Serif", Font.PLAIN, 25));
+        jButton10.addActionListener(presenter);
+        jButton10.setActionCommand(Command.C_GRAPHICS.toString());
         jButton10.setForeground(Color.LIGHT_GRAY);
         jButton10.setPreferredSize(new Dimension((int)fwbuttons,(int) fhbuttons));
 

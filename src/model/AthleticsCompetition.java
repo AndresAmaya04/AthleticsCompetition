@@ -60,6 +60,14 @@ public class AthleticsCompetition {
         }
     }
 
+    public int sumMedals(){
+        int numberMedals = 0;
+        for (int i=0; i<delegations.size(); i++){
+            numberMedals += delegations.get(i).getMedalsQuantiti();
+        }
+        return numberMedals;
+    }
+
     public ArrayList<Competitor> getOrderOfCompetition(String competition, String gender){
         ArrayList<Competitor> competitors = new ArrayList<>();
         for (int i=0; i<delegations.size(); i++){

@@ -2,6 +2,7 @@ package views.main;
 
 import javax.swing.*;
 
+import model.Delegation;
 import presenter.Presenter;
 import views.body.BodyPanel;
 
@@ -11,6 +12,7 @@ import views.footer.FooterPanel;
 import views.header.HeaderPanel;
 
 import java.awt.*;
+import java.util.ArrayList;
 //import presenters.PresenterApp;
 //import views.header.JPContainerHeader;
 
@@ -88,6 +90,10 @@ public class JPMainPanel extends JPanel {
     public void changePanelScore(){
         jBodyPanel.changePanelScore();
         this.validate();
+    }
+
+    public void changePanelGraphics(JPanel jPanel){
+       jBodyPanel.changePanelGraphics(jPanel);
     }
 
     public String filechooser(){

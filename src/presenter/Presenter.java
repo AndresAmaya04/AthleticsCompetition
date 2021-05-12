@@ -1,6 +1,7 @@
 package presenter;
 
 import model.*;
+import views.JPanelGraphics;
 import views.main.JfMainWindow;
 
 import java.awt.event.ActionEvent;
@@ -12,11 +13,12 @@ public class Presenter implements ActionListener {
     JfMainWindow jfMainWindow;
     JsonUtilities jsonUtilities;
     AthleticsCompetition athleticsCompetition;
+    JPanelGraphics panelGraphics;
 
     public Presenter() {
+        athleticsCompetition = new AthleticsCompetition();
         jfMainWindow = new JfMainWindow(this);
         jsonUtilities = new JsonUtilities();
-        athleticsCompetition = new AthleticsCompetition();
     }
 
     public static void main(String[] args) {
@@ -114,7 +116,10 @@ public class Presenter implements ActionListener {
                 for (int i = 0; i < athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).size(); i++) {
                     jfMainWindow.addRowTableDelegation(athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).get(i));
                 }
-
+            case C_GRAPHICS:
+                panelGraphics = new JPanelGraphics(athleticsCompetition.sumMedals(), athleticsCompetition.getDelegations(), ModelConstants.delegationsNames);
+                jfMainWindow.changePanelGraphics(panelGraphics);
+                break;
             default:
                 break;
         }
