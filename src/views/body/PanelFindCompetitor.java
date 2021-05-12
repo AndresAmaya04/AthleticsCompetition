@@ -28,23 +28,28 @@ public class PanelFindCompetitor extends JPanel {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         initComponents(presenter);
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
+        this.setBackground(Color.decode("#C4DFE6"));
     }
 
     private void initComponents(Presenter presenter){
         JPanel panel = new JPanel();
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
         label = new JLabel("Busca un jugaor");
+        label.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(label);
 
         textField = new JTextField();
         textField.setBackground(Color.decode("#C4DFE6"));
         textField.setBorder(BorderFactory.createTitledBorder("Ingrese nombre o apellido del jugador"));
+        textField.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         textField.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(textField);
 
         search = new JButton("Buscar");
+        search.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         search.setBorderPainted(false);
         search.setBackground(Color.decode("#C4DFE6"));
         search.addActionListener(presenter);
@@ -57,9 +62,13 @@ public class PanelFindCompetitor extends JPanel {
         String[] headers = {"Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion"};
         defaultTableModel.setColumnIdentifiers(headers);
         jTable = new JTable();
+        jTable.getTableHeader().setBackground(Color.decode("#6FB98F"));
+        jTable.getTableHeader().setFont(new Font(Font.DIALOG,Font.BOLD,15));;
+        jTable.setBackground(Color.decode("#C4DFE6"));
         jTable.setModel(defaultTableModel);
         jTable.setRowHeight(20);
         jScrollPane = new JScrollPane(jTable);
+        jScrollPane.getViewport().setBackground(Color.decode("#C4DFE6"));
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
     }

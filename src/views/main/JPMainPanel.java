@@ -50,10 +50,10 @@ public class JPMainPanel extends JPanel {
         this.validate();
     }
 
-    public void changePanelInit(){
-        jBodyPanel.changePanelInit();
-        this.validate();
-    }
+//    public void changePanelInit(){
+//        jBodyPanel.changePanelInit();
+//        this.validate();
+//    }
 
     public void changePanelFindCompetitor(){
         jBodyPanel.chanPanelFindCompetitor();
@@ -80,6 +80,11 @@ public class JPMainPanel extends JPanel {
         this.validate();
     }
 
+    public void changePanelMedalsDelegation(){
+        jBodyPanel.changePanelMedalsDelegation();
+        this.validate();
+    }
+
     public void changePanelScore(){
         jBodyPanel.changePanelScore();
         this.validate();
@@ -95,6 +100,10 @@ public class JPMainPanel extends JPanel {
 
     public String getNameFindCompetitor(){
         return jBodyPanel.getNameFindCompetitor();
+    }
+
+    public String getNameDelegationSearch(){
+        return jBodyPanel.getNameDelegationSearch();
     }
 
     public void cleanTableFindCompetitor(){
@@ -123,6 +132,14 @@ public class JPMainPanel extends JPanel {
 
     public void addRowBronze(Object[] objects){
         jBodyPanel.addRowBronze(objects);
+    }
+
+    public void addRowTableDelegation(Object[] objects){
+        jBodyPanel.addRowTableDelegation(objects);
+    }
+
+    public void cleanTableMedalDelegation(){
+        jBodyPanel.cleanTableMedalDelegation();
     }
 
     public void cleanTableGold(){

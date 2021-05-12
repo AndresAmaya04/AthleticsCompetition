@@ -28,7 +28,7 @@ public class PanelCompetitorsByDelgation extends JPanel{
     public PanelCompetitorsByDelgation(Presenter presenter) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
-//        this.setBackground(Color.PINK);
+        this.setBackground(Color.decode("#C4DFE6"));
 
         initComponents(presenter);
     }
@@ -38,14 +38,17 @@ public class PanelCompetitorsByDelgation extends JPanel{
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
         stringJComboBox = new JComboBox();
+        stringJComboBox.setBackground(Color.decode("#C4DFE6"));
         for (int i=0; i<ModelConstants.delegationsNames.length; i++){
             stringJComboBox.addItem(ModelConstants.delegationsNames[i]);
         }
         stringJComboBox.setBorder(BorderFactory.createTitledBorder("Seleccione la delegacion a buscar"));
+        stringJComboBox.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         stringJComboBox.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(stringJComboBox);
 
         buttonSearch = new JButton("Buscar");
+        buttonSearch.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         buttonSearch.setBorderPainted(false);
         buttonSearch.setBackground(Color.decode("#C4DFE6"));
         buttonSearch.setPreferredSize(new Dimension((int)wfi,(int)hfi));
@@ -59,8 +62,12 @@ public class PanelCompetitorsByDelgation extends JPanel{
         defaultTableModel.setColumnIdentifiers(headers);
         jTable = new JTable();
         jTable.setModel(defaultTableModel);
+        jTable.getTableHeader().setBackground(Color.decode("#6FB98F"));
+        jTable.getTableHeader().setFont(new Font(Font.DIALOG,Font.BOLD,12));;
+        jTable.setBackground(Color.decode("#C4DFE6"));
         jTable.setRowHeight(20);
         jScrollPane = new JScrollPane(jTable);
+        jScrollPane.getViewport().setBackground(Color.decode("#C4DFE6"));
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
     }

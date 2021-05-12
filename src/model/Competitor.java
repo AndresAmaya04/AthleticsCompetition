@@ -114,4 +114,12 @@ public class Competitor {
         }
         return new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, "N/A"};
     }
+
+    public Object[] getCompetitorMedals(){
+        Object[] aux = new Object[0];
+        if (medal != null){
+            aux = new Object[]{this.competence.getNameCompetence(), this.dorsal, this.name, this.lastName, this.gender.getGender(), this.delegation, this.medal.getNameMedal()};
+        }
+        return aux;
+    }
 }

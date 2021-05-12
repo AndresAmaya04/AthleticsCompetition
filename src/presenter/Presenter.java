@@ -5,7 +5,6 @@ import views.main.JfMainWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
@@ -40,6 +39,7 @@ public class Presenter implements ActionListener {
                 jfMainWindow.changePanelFindCompetitor();
                 break;
             case C_MEDALS_DELEGATIONS:
+                jfMainWindow.changePanelMedalsDelegation();
                 break;
             case C_SCHEDULE_PER_COMPETENCE:
                 jfMainWindow.changePanelExperience();
@@ -106,8 +106,15 @@ public class Presenter implements ActionListener {
             case GOLDEN_BOY:
                 jfMainWindow.changePanelGolden();
                 Competitor[] competitorsPrice1 = athleticsCompetition.getGoldenGayAndExperiencePrice();
-                jfMainWindow.addRowExperience(competitorsPrice1[0].getCompetitorInfoForMedals());
+                jfMainWindow.addRowGold(competitorsPrice1[0].getCompetitorInfoForMedals());
                 break;
+            case C_SEARCH_MEDALS_DELEGATION:
+                jfMainWindow.cleanTableMedalDelegation();
+                athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch());
+                for (int i = 0; i < athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).size(); i++) {
+                    jfMainWindow.addRowTableDelegation(athleticsCompetition.medalForDelegation(jfMainWindow.getNameDelegationSearch()).get(i));
+                }
+
             default:
                 break;
         }

@@ -67,12 +67,12 @@ public class HeaderPanel extends JPanel {
         jButtonAdd.setActionCommand(Command.C_ADD_JSON.toString());
         jButtonAdd.addActionListener(presenter);
 
-        JButton jButtonAddRunner = new JButton();
-        jButtonAddRunner.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_ADD_RUNNER)).getImage().getScaledInstance((int) fWButtonS,(int) fHButtonS,Image.SCALE_SMOOTH)));
-        jButtonAddRunner.setPreferredSize(new Dimension((int) fWButton,(int) fHButton));
-//        jlabel.setPreferredSize(new Dimension(1000,100));
-        jButtonAddRunner.setBorderPainted(false);
-        jButtonAddRunner.setBackground(Color.decode("#276E90"));
+//        JButton jButtonAddRunner = new JButton();
+//        jButtonAddRunner.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_ADD_RUNNER)).getImage().getScaledInstance((int) fWButtonS,(int) fHButtonS,Image.SCALE_SMOOTH)));
+//        jButtonAddRunner.setPreferredSize(new Dimension((int) fWButton,(int) fHButton));
+////        jlabel.setPreferredSize(new Dimension(1000,100));
+//        jButtonAddRunner.setBorderPainted(false);
+//        jButtonAddRunner.setBackground(Color.decode("#276E90"));
 
         JButton toSpanish = new JButton();
         toSpanish.setIcon(new ImageIcon(new ImageIcon(getClass().getResource(ConstantsUI.PATH_TO_SPANISH)).getImage().getScaledInstance((int) fWButtonS,(int) fHButtonS,Image.SCALE_SMOOTH)));
@@ -91,7 +91,7 @@ public class HeaderPanel extends JPanel {
         this.add(jlabel,BorderLayout.WEST);
         this.add(jlabelTitle,BorderLayout.CENTER);
         this.add(jButtonAdd);
-        this.add(jButtonAddRunner);
+//        this.add(jButtonAddRunner);
         this.add(toEnglish);
         this.add(toSpanish);
     }

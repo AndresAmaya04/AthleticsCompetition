@@ -24,6 +24,7 @@ public class PanelPrice extends JPanel {
     public PanelPrice(Presenter presenter, String price) {
 //        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
+        this.setBackground(Color.decode("#C4DFE6"));
         initComponents(presenter, price);
     }
 
@@ -32,7 +33,8 @@ public class PanelPrice extends JPanel {
         panel.setBackground(Color.decode("#C4DFE6"));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
         label = new JLabel("Ganador del " + price);
-        label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
+        label.setFont(new Font(Font.DIALOG,Font.BOLD,30));
+//        label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(label);
         this.add(panel);
 
@@ -40,9 +42,13 @@ public class PanelPrice extends JPanel {
         String[] headers = {"Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion", "Medalla"};
         defaultTableModel.setColumnIdentifiers(headers);
         jTable = new JTable();
+        jTable.getTableHeader().setBackground(Color.decode("#6FB98F"));
+        jTable.getTableHeader().setFont(new Font(Font.DIALOG,Font.BOLD,13));
+        jTable.setBackground(Color.decode("#C4DFE6"));
         jTable.setModel(defaultTableModel);
         jTable.setRowHeight(20);
         jScrollPane = new JScrollPane(jTable);
+        jScrollPane.getViewport().setBackground(Color.decode("#C4DFE6"));
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
     }

@@ -16,7 +16,7 @@ public class PanelScores extends JPanel {
     float ws = (float) (widthS*0.70);
     float hs = (float) (heightS*0.70);
 
-    float wfi = (float) (widthS*0.23);
+    float wfi = (float) (widthS*0.17);
     float hfi = (float) (heightS*0.05);
 
     private JLabel label;
@@ -28,25 +28,24 @@ public class PanelScores extends JPanel {
     private JScrollPane jScrollPane;
 
     public PanelScores(Presenter presenter) {
-//        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
-        this.setBackground(Color.black);
+        this.setBackground(Color.decode("#C4DFE6"));
         initComponents(presenter);
     }
 
     private void initComponents(Presenter presenter){
         JPanel panel = new JPanel();
-//        panel.setLayout(new GridLayout(0,3));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
         panel.setBackground(Color.decode("#C4DFE6"));
-//        panel.setPreferredSize(new Dimension((int)wfi,(int) (heightS*0.01)));
         label = new JLabel("Ver Tabla de resultados");
+        label.setFont(new Font(Font.DIALOG,Font.BOLD,13));
         label.setPreferredSize(new Dimension((int)wfi,(int)hfi));
 
         panel.add(label);
 
         stringJComboBox = new JComboBox();
         stringJComboBox.setBackground(Color.decode("#C4DFE6"));
+        stringJComboBox.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         stringJComboBox.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         for (int i=0; i<ModelConstants.COMPETENCE_LIST.length; i++){
             stringJComboBox.addItem(ModelConstants.COMPETENCE_LIST[i]);
@@ -55,13 +54,16 @@ public class PanelScores extends JPanel {
         panel.add(stringJComboBox);
 
         genderComboBox = new JComboBox();
+        genderComboBox.setBackground(Color.decode("#C4DFE6"));
         genderComboBox.addItem(Gender.MALE.getGender());
         genderComboBox.addItem(Gender.FEMALE.getGender());
         genderComboBox.setBorder(BorderFactory.createTitledBorder("    Ingrese genero de la competencia"));
+        genderComboBox.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         genderComboBox.setPreferredSize(new Dimension((int)wfi,(int)hfi));
         panel.add(genderComboBox);
 
         search = new JButton("Buscar");
+        search.setFont(new Font(Font.DIALOG,Font.BOLD,15));
         search.setBorderPainted(false);
         search.setBackground(Color.decode("#C4DFE6"));
         search.setPreferredSize(new Dimension((int)wfi,(int)hfi));
@@ -74,9 +76,13 @@ public class PanelScores extends JPanel {
         String[] headers = {"Posicion","Competencia", "Dorsal", "Nombre", "Apellido", "Genero", "Delegacion"};
         defaultTableModel.setColumnIdentifiers(headers);
         jTable = new JTable();
+        jTable.getTableHeader().setBackground(Color.decode("#6FB98F"));
+        jTable.getTableHeader().setFont(new Font(Font.DIALOG,Font.BOLD,15));
+        jTable.setBackground(Color.decode("#C4DFE6"));
         jTable.setModel(defaultTableModel);
         jTable.setRowHeight(20);
         jScrollPane = new JScrollPane(jTable);
+        jScrollPane.getViewport().setBackground(Color.decode("#C4DFE6"));
         jScrollPane.setPreferredSize(new Dimension((int)ws,(int)hs));
         this.add(jScrollPane);
     }

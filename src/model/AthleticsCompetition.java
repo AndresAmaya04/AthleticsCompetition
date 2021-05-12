@@ -37,11 +37,11 @@ public class AthleticsCompetition {
      * @param delegation nombre de la delegacion
      * @return texto con cantidad de medallas de la delegacion
      */
-    public Object[] medalForDelegation(String delegation){
-        Object[] aux = null;
+    public ArrayList<Object[]> medalForDelegation(String delegation){
+        ArrayList<Object[]> aux = null;
         for (int i=0; i<delegations.size(); i++){
             if (delegations.get(i).getOriginPlace().equals(delegation)){
-                aux = delegations.get(i).getMedalsOfDelegation();
+                aux = delegations.get(i).getMedalsDelegation();
             }
         }
         return aux;

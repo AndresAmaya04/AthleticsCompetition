@@ -13,6 +13,7 @@ public class LeftPanel extends JPanel{
     JPanel jPanel = new JPanel();
     JPanel jpanelInit = new JPanel();
     public LeftPanel() {
+        this.setLayout(new BorderLayout());
 //        System.out.println(widthS);
 //        System.out.println(ws);
         this.setPreferredSize(new Dimension((int)ws,(int)hs));
@@ -30,9 +31,15 @@ public class LeftPanel extends JPanel{
      * Metodo que crea los componentes del panel LefttPanel
      */
     public void initicomponents(){
+        JLabel label1 = new JLabel();
+        label1.setText("Bienvenido al sistema Clasica atleta");
         jpanelInit.setBackground(Color.BLUE);
 
-        this.add(jpanelInit);
+        JLabel label2 = new JLabel();
+        label2.setText("Para comenzar por favor agrege los recurso .json primero en el que se encuentran \n los corredores y luego donde se encuentran las diciplinas");
+
+        this.add(label1, BorderLayout.NORTH);
+        this.add(label2, BorderLayout.CENTER);
 //        this.validate();
     }
 

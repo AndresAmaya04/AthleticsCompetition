@@ -42,10 +42,10 @@ public class JfMainWindow extends JFrame {
         this.validate();
     }
 
-    public void changePanelInit(){
-        jpMainPanel.changePanelInit();
-        this.validate();
-    }
+//    public void changePanelInit(){
+//        jpMainPanel.changePanelInit();
+//        this.validate();
+//    }
 
     public void changePanelFindCompetitor(){
         jpMainPanel.changePanelFindCompetitor();
@@ -72,6 +72,11 @@ public class JfMainWindow extends JFrame {
         this.validate();
     }
 
+    public void changePanelMedalsDelegation(){
+        jpMainPanel.changePanelMedalsDelegation();
+        this.validate();
+    }
+
     public void changePanelScore(){
         jpMainPanel.changePanelScore();
         this.validate();
@@ -87,6 +92,10 @@ public class JfMainWindow extends JFrame {
 
     public String getNameFindCompetitor(){
         return jpMainPanel.getNameFindCompetitor();
+    }
+
+    public String getNameDelegationSearch(){
+        return jpMainPanel.getNameDelegationSearch();
     }
 
     public void cleanTableFindCompetitor(){
@@ -115,6 +124,14 @@ public class JfMainWindow extends JFrame {
 
     public void addRowBronze(Object[] objects){
         jpMainPanel.addRowBronze(objects);
+    }
+
+    public void addRowTableDelegation(Object[] objects){
+        jpMainPanel.addRowTableDelegation(objects);
+    }
+
+    public void cleanTableMedalDelegation(){
+        jpMainPanel.cleanTableMedalDelegation();
     }
 
     public void cleanTableGold(){

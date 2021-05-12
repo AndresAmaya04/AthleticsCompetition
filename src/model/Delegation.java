@@ -58,6 +58,16 @@ public class Delegation {
         return new Object[]{medalsGold, medalsSilver, medalsBronze, getMedalsQuantiti()};
     }
 
+    public ArrayList<Object[]> getMedalsDelegation(){
+        ArrayList<Object[]> competitorsmedals = new ArrayList<>();
+        for (int i = 0; i < competitors.size(); i++) {
+            if (competitors.get(i).getMedal() != null) {
+                competitorsmedals.add(competitors.get(i).getCompetitorMedals());
+            }
+        }
+        return competitorsmedals;
+    }
+
     public void addPlayerToDelegation(Competitor competitor){
         this.competitors.add(competitor);
     }
